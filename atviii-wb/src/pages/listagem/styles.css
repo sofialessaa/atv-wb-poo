@@ -1,0 +1,24 @@
+main h1 {
+    margin-top: 50px;
+}
+
+main .tables {
+    margin: 25px 10px;
+}
+
+main .icons {
+    display: none;
+    flex-direction: column;
+}
+
+@media (max-width: 632px) {
+    main .Column {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    main .icons {
+        display: flex;
+    }
+}
