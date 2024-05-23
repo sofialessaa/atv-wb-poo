@@ -1,6 +1,6 @@
 import { PencilSimple, Eraser, Eye } from 'phosphor-react';
 import { Component } from 'react';
-import { Button, Table } from 'react-bootstrap';
+import { Table } from "react-bootstrap";
 import BarraNavegacao from '../../componentes/barraNavegacao';
 import './styles.scss';
 
