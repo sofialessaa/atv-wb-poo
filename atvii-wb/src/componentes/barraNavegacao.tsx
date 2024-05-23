@@ -24,12 +24,12 @@ export default class BarraNavegacao extends Component {
     return (
       <Navbar className="navbar-lilac" expand="lg">
         <Container>
-          <Navbar.Brand href="/clientes">World Beauty</Navbar.Brand>
+          <Navbar.Brand href="/">World Beauty</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               {this.renderDropdownItems("REGISTROS", [
-                { href: "/clientes", text: "Clientes" },
+                { href: "/", text: "Clientes" },
                 { href: "/produtos", text: "Produtos" },
                 { href: "/servicos", text: "Serviços" },
               ])}
