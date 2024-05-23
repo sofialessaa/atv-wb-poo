@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Listas } from '../pages/lista/lista';
 /* cliente */
@@ -19,25 +19,30 @@ import { ComprarServicos } from '../pages/servicos/comprarServico';
 import { ListarProdutos } from '../pages/listagem/listagemProduto';
 import { ListarServicos } from '../pages/listagem/listagemServico';
 
-const AppRoutes = () => (
-  <Router>
-    <Routes>
-{/*       <Route path='/' element={< />} /> */}
-      <Route path='/listas' element={<Listas />} />
-      <Route path='/cadastrar_cliente' element={<CadastroClientes />} />
-      <Route path='/editar_cliente/1' element={<EditarCliente />} />
-      <Route path='/' element={<ListaClientes />} />
-      <Route path='/cadastrar_produto' element={<CadastroProdutos />} />
-      <Route path='/editar_produto/1' element={<EditarProduto />} />
-      <Route path='/produtos' element={<ListaProdutos />} />
-      <Route path='/comprar_produtos' element={<ComprarProdutos />} />
-      <Route path='/cadastrar_servico' element={<CadastroServico />} />
-      <Route path='/editar_servico/1' element={<EditarServico />} />
-      <Route path='/servicos' element={<ListaServicos />} />
-      <Route path='/comprar_servicos' element={<ComprarServicos />} />
-      <Route path='/listar_produtos' element={<ListarProdutos />} />
-      <Route path='/listar_servicos' element={<ListarServicos />} />
-    </Routes>
-  </Router>
-);
+class AppRoutes extends Component {
+  render() {
+    return (
+      <Router>
+        <Routes>
+          {/* <Route path='/' element={< />} /> */}
+          <Route path='/listas' element={<Listas />} />
+          <Route path='/cadastrar_cliente' element={<CadastroClientes />} />
+          <Route path='/editar_cliente/1' element={<EditarCliente />} />
+          <Route path='/' element={<ListaClientes />} />
+          <Route path='/cadastrar_produto' element={<CadastroProdutos />} />
+          <Route path='/editar_produto/1' element={<EditarProduto />} />
+          <Route path='/produtos' element={<ListaProdutos />} />
+          <Route path='/comprar_produtos' element={<ComprarProdutos />} />
+          <Route path='/cadastrar_servico' element={<CadastroServico />} />
+          <Route path='/editar_servico/1' element={<EditarServico />} />
+          <Route path='/servicos' element={<ListaServicos />} />
+          <Route path='/comprar_servicos' element={<ComprarServicos />} />
+          <Route path='/listar_produtos' element={<ListarProdutos />} />
+          <Route path='/listar_servicos' element={<ListarServicos />} />
+        </Routes>
+      </Router>
+    );
+  }
+}
+
 export default AppRoutes;
