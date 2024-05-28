@@ -22,7 +22,7 @@ export default class BarraNavegacao extends Component {
 
   render() {
     return (
-      <Navbar className="navbar-lilac" expand="lg">
+      <Navbar className="navbar" expand="lg">
         <Container>
           <Navbar.Brand href="/">World Beauty</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
