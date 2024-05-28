@@ -1,4 +1,3 @@
-import { PencilSimple, Eraser, Eye } from 'phosphor-react';
 import { Component } from 'react';
 import { Table } from 'react-bootstrap';
 import BarraNavegacao from '../../componentes/barraNavegacao';
@@ -19,7 +18,7 @@ export class ListaServicos extends Component {
                         <Table className= "table">
                             <thead className='table-light'>
                                 <tr>
-                                    <td>Id</td>
+                                    <td>ID</td>
                                     <td>Serviço</td>
                                     <td>Preço</td>
                                     <td>Editar</td>
@@ -32,18 +31,13 @@ export class ListaServicos extends Component {
                                     <td>Corte de Cabelo Feminino</td>
                                     <td>R$90,00</td>
                                     <td>
-                                        <div className="icons">
-                                            <a href="/editar_servico/1"><PencilSimple size={35} color="#198754"/></a>
-                                            <a href="/servicos/1"><Eye size={35} color="#0DCAF0"/></a>
-                                            <a href="##"><Eraser size={35} color="#DC3545"/></a>
-                                        </div>
-                                        <a href="/editar_servico/1">
-                                            <img src={editar} alt="Editar" className="icon"/>
+                                        <a href="/editar_servico">
+                                            <img src={editar} alt="Editar"/>
                                         </a>
                                     </td>
                                     <td>
                                         <a href="##">
-                                            <img src={excluir} alt="Editar" className="icon"/>
+                                            <img src={excluir} alt="Excluir"/>
                                         </a>
                                     </td>
                                 </tr>
@@ -52,13 +46,13 @@ export class ListaServicos extends Component {
                                     <td>Remoção de Manchas na Pele</td>
                                     <td>R$180,00</td>
                                     <td>
-                                        <a href="##">
-                                            <img src={editar} alt="Editar" className="icon"/>
+                                        <a href="/editar_servico">
+                                            <img src={editar} alt="Editar"/>
                                         </a>
                                     </td>
                                     <td>
                                         <a href="##">
-                                            <img src={excluir} alt="Editar" className="icon"/>
+                                            <img src={excluir} alt="Excluir"/>
                                         </a>
                                     </td>
                                 </tr>
@@ -67,13 +61,13 @@ export class ListaServicos extends Component {
                                     <td>Pedicure</td>
                                     <td>R$35,00</td>
                                     <td>
-                                        <a href="##">
-                                            <img src={editar} alt="Editar" className="icon"/>
+                                        <a href="/editar_servico">
+                                            <img src={editar} alt="Editar"/>
                                         </a>
                                     </td>
                                     <td>
                                         <a href="##">
-                                            <img src={excluir} alt="Editar" className="icon"/>
+                                            <img src={excluir} alt="Excluir"/>
                                         </a>
                                     </td>
                                 </tr>
@@ -82,13 +76,13 @@ export class ListaServicos extends Component {
                                     <td>Corte de Cabelo Masculino</td>
                                     <td>R$40,00</td>
                                     <td>
-                                        <a href="##">
-                                            <img src={editar} alt="Editar" className="icon"/>
+                                        <a href="/editar_servico">
+                                            <img src={editar} alt="Editar"/>
                                         </a>
                                     </td>
                                     <td>
                                         <a href="##">
-                                            <img src={excluir} alt="Editar" className="icon"/>
+                                            <img src={excluir} alt="Excluir"/>
                                         </a>
                                     </td>
                                 </tr>
@@ -97,13 +91,13 @@ export class ListaServicos extends Component {
                                     <td>Modelagem de Barba</td>
                                     <td>R$30,00</td>
                                     <td>
-                                        <a href="##">
-                                            <img src={editar} alt="Editar" className="icon"/>
+                                        <a href="/editar_servico">
+                                            <img src={editar} alt="Editar"/>
                                         </a>
                                     </td>
                                     <td>
                                         <a href="##">
-                                            <img src={excluir} alt="Editar" className="icon"/>
+                                            <img src={excluir} alt="Excluir"/>
                                         </a>
                                     </td>
                                 </tr>
