@@ -1,8 +1,7 @@
 import { Component } from "react";
 import { Table } from "react-bootstrap";
 import BarraNavegacao from "../../componentes/barraNavegacao";
-import "./styles.scss";
-import { Eraser, Eye, PencilSimple } from "phosphor-react";
+import '../styles.scss';
 
 export class ListarProdutos extends Component {
     render() {
@@ -12,15 +11,15 @@ export class ListarProdutos extends Component {
                     <BarraNavegacao />
                 </header>
                 <main>
-                    <h1>Lista de todos os pedidos de produtos por cliente</h1>
+                    <h1>Lista dos pedidos de produtos por cliente</h1>
                     <div className='tables'>
                         <Table className= "table">
                             <thead className='table-light'>
                                 <tr>
-                                    <td>Id</td>
+                                    <td>ID</td>
                                     <td>Nome</td>
                                     <td>CPF</td>
-                                    <td>IDProduto</td>
+                                    <td>ID_Produto</td>
                                     <td>Produto</td>
                                 </tr>
                             </thead>
@@ -31,19 +30,6 @@ export class ListarProdutos extends Component {
                                     <td>131.313.131-31</td>
                                     <td>1</td>
                                     <td>Esmalte</td>
-                                    <td>
-                                        <div className="icons">
-                                            <a href="/editar_cliente/1">
-                                                <PencilSimple size={35} color="#198754" />
-                                            </a>
-                                            <a href="/clientes/1">
-                                                <Eye size={35} color="#0DCAF0" />
-                                            </a>
-                                            <a href="##">
-                                                <Eraser size={35} color="#DC3545" />
-                                            </a>
-                                        </div>
-                                    </td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
