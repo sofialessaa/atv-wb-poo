@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { Button } from "react-bootstrap";
 import BarraNavegacao from '../../componentes/barraNavegacao';
-import './styles.scss'
+import '../styles.scss'
 import InputMask from "react-input-mask";
 
 export class CadastroClientes extends Component {
@@ -53,6 +53,10 @@ export class CadastroClientes extends Component {
                             />
                             </div>
                             <div className="field">
+                                <label htmlFor="UF">UF do RG:</label>
+                                <input type="text"/>
+                            </div>
+                            <div className="field">
                             <label htmlFor="telefone">Telefone:</label>
                             <InputMask
                                 mask="(99) 99999-9999"
@@ -60,7 +64,7 @@ export class CadastroClientes extends Component {
                                 type="text"
                             />
                             </div>
-                            <Button className="submit" variant="outline-dark" type='submit'>Cadastrar</Button>{' '}
+                            <Button className="submit" type='submit'>Cadastrar</Button>{' '}
                         </form>
                     </div>
                 </main>
