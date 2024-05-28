@@ -1,7 +1,7 @@
 import { Button, Table } from "react-bootstrap";
 import { Component } from "react";
 import BarraNavegacao from "../../componentes/barraNavegacao";
-import "./styles.scss";
+import '../styles.scss';
 
 export class Listas extends Component {
   render() {
@@ -11,37 +11,37 @@ export class Listas extends Component {
           <BarraNavegacao />
         </header>
         <main>
-          <h1>Listas</h1>
+          <h1>Listas de informações</h1>
           <div className="tables">
             <Table className= "table">
               <thead className='table-light'>
                 <tr>
-                  <td>Nome</td>
+                  <td>Listas</td>
                   <td>Visualizar</td>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>10 clientes que mais consumiram em quantidade</td>
+                  <td>10 clientes que mais consumiram em quantidade.</td>
                   <td>
                     <div>
-                      <Button variant="outline-info" href="##">Visualizar</Button>{" "}
+                      <Button variant="light" href="##">Visualizar</Button>{" "}
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <td>Todos os clientes por gênero</td>
+                  <td>Todos os clientes por gênero.</td>
                   <td>
                     <div>
-                      <Button variant="outline-info" href="##">Visualizar</Button>{" "}
+                      <Button variant="light" href="##">Visualizar</Button>{" "}
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <td>Produtos e serviços gerais mais consumidos</td>
+                  <td>Produtos e serviços gerais mais consumidos.</td>
                   <td>
                     <div>
-                      <Button variant="outline-info" href="##">Visualizar</Button>{" "}
+                      <Button variant="light" href="##">Visualizar</Button>{" "}
                     </div>
                   </td>
                 </tr>
@@ -49,23 +49,23 @@ export class Listas extends Component {
                   <td>Produtos ou serviços mais consumidos por gênero.</td>
                   <td>
                     <div>
-                      <Button variant="outline-info" href="##">Visualizar</Button>{" "}
+                      <Button variant="light" href="##">Visualizar</Button>{" "}
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <td>10 clientes que menos consumiram produtos ou serviços</td>
+                  <td>10 clientes que menos consumiram produtos ou serviços.</td>
                   <td>
                     <div>
-                      <Button variant="outline-info" href="##">Visualizar</Button>{" "}
+                      <Button variant="light" href="##">Visualizar</Button>{" "}
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <td>5 clientes que mais consumiram em valor</td>
+                  <td>5 clientes que mais consumiram em valor.</td>
                   <td>
                     <div>
-                      <Button variant="outline-info" href="##">Visualizar</Button>{" "}
+                      <Button variant="light" href="##">Visualizar</Button>{" "}
                     </div>
                   </td>
                 </tr>
