@@ -18,7 +18,7 @@ export class ComprarProdutos extends Component {
                                 <input type="text" />
                             </div>
                             <div className="field">
-                                <label htmlFor="Sobrenome">Número do produto desejado:</label>
+                                <label htmlFor="Sobrenome">ID ou nome do produto:</label>
                                 <input type="text" />
                             </div>
                             <div className="field">
@@ -31,11 +31,13 @@ export class ComprarProdutos extends Component {
                                     <option>4</option>
                                     <option>5</option>
                                     <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
                                 </select>
                             </div>
-                            <Button className="submit" variant="outline-dark" type="submit">
-                                Comprar
-                            </Button>{" "}
+                            <Button className="submit" type="submit">Comprar</Button>{" "}
                         </form>
                     </div>
                 </main>
