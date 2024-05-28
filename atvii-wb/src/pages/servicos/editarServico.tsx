@@ -16,7 +16,7 @@ export class EditarServico extends Component {
                         <form>
                             <div className="field">
                                 <label htmlFor="Servico">Serviço:</label>
-                                <input type="text" defaultValue="Corte de Cabelo Feminino"/>
+                                <input type="text"/>
                             </div>
                             <div className="field">
                                 <label htmlFor="Preco">Preço:</label>
@@ -28,12 +28,11 @@ export class EditarServico extends Component {
                                     decimalSeparator=","
                                     groupSeparator="."
                                     placeholder="0,00"
-                                    defaultValue="15"
                                 />
                             </div>
                             <div className='button-editar'>
-                                <Button className="submit-editar" variant="outline-dark" type='submit'>Editar</Button>{' '}
-                                <Button className="submit-editar" variant="outline-dark" href='/clientes'>Voltar</Button>
+                                <Button className="submit-editar" type='submit'>Editar</Button>{' '}
+                                <Button className="submit-editar" href='/servicos'>Voltar</Button>
                             </div>
                         </form>
                     </div>
