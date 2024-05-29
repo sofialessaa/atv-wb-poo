@@ -56,31 +56,3 @@ export class EditarProduto extends Component {
         );
     }
 }
-                            <div className="field">
-                                <label htmlFor="Produto">Produto:</label>
-                                <input type="text" defaultValue="Esmalte"/>
-                            </div>
-                            <div className="field">
-                                <label htmlFor="Preco">Preço:</label>
-                                <CurrencyInput
-                                    id="Preco"
-                                    name="Preco"
-                                    prefix="R$"
-                                    decimalsLimit={2}
-                                    decimalSeparator=","
-                                    groupSeparator="."
-                                    placeholder="0,00"
-                                    defaultValue="15"
-                                />
-                            </div>
-                            <div className='button-editar'>
-                                <Button className="submit-editar" variant="outline-dark" type='submit'>Editar</Button>{' '}
-                                <Button className="submit-editar" variant="outline-dark" href='/clientes'>Voltar</Button>
-                            </div>
-                        </form>
-                    </div>
-                </main>
-            </section>
-        );
-    }
-}
