@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from "react-bootstrap";
 import BarraNavegacao from '../../componentes/barraNavegacao';
-import './styles.css';
+import '../styles.css';
 import InputMask from "react-input-mask";
 
 export default function CadastroClientes(props){
@@ -52,6 +52,10 @@ export default function CadastroClientes(props){
                         />
                         </div>
                         <div className="field">
+                            <label htmlFor="UF">UF do RG:</label>
+                            <input type="text"/>
+                        </div>
+                        <div className="field">
                         <label htmlFor="telefone">Telefone:</label>
                         <InputMask
                             mask="(99) 99999-9999"
@@ -59,7 +63,7 @@ export default function CadastroClientes(props){
                             type="text"
                         />
                         </div>
-                        <Button className="submit" variant="outline-dark" type='submit'>Cadastrar</Button>{' '}
+                        <Button className="submit" type='submit'>Cadastrar</Button>{' '}
                     </form>
                 </div>
             </main>

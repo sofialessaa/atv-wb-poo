@@ -1,8 +1,7 @@
-import { PencilSimple, Eraser, Eye } from 'phosphor-react';
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import BarraNavegacao from '../../componentes/barraNavegacao';
-import './styles.css';
+import '../styles.css';
 
 export default function ListarServicos(props){
     return (
@@ -11,15 +10,15 @@ export default function ListarServicos(props){
                 <BarraNavegacao />
             </header>
             <main>
-                <h1>Lista de todos os pedidos de serviços por cliente</h1>
+                <h1>Lista dos pedidos de serviços por cliente</h1>
                 <div className="tables">
                     <Table className= "table">
                         <thead className='table-light'>
                             <tr>
-                                <td>Id</td>
+                                <td>ID</td>
                                 <td>Nome</td>
                                 <td>CPF</td>
-                                <td>IDServico</td>
+                                <td>ID_Servico</td>
                                 <td>Serviço</td>
                             </tr>
                         </thead>
@@ -30,19 +29,6 @@ export default function ListarServicos(props){
                                 <td>131.313.131-31</td>
                                 <td>3</td>
                                 <td>Pedicure</td>
-                                <td>
-                                    <div className="icons">
-                                        <a href="/editar_servicos/1">
-                                            <PencilSimple size={35} color="#198754" />
-                                        </a>
-                                        <a href="/clientes/1">
-                                            <Eye size={35} color="#0DCAF0" />
-                                        </a>
-                                        <a href="##">
-                                            <Eraser size={35} color="#DC3545" />
-                                        </a>
-                                    </div>
-                                </td>
                             </tr>
                             <tr>
                                 <td>2</td>
@@ -70,5 +56,5 @@ export default function ListarServicos(props){
                 </div>
             </main>
         </section>
-    );    
+    );   
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import "./styles.css";
 
-const BarraNavegacao = () => {
+export default function BarraNavegacao(props) {
   const renderDropdownItems = (title, items) => {
     return (
       <NavDropdown title={title} id={`basic-nav-dropdown-${title.toLowerCase()}`}>
@@ -16,7 +16,7 @@ const BarraNavegacao = () => {
   };
 
   return (
-    <Navbar className="navbar-lilac" expand="lg">
+    <Navbar className="navbar" expand="lg">
       <Container>
         <Navbar.Brand href="/">World Beauty</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -27,7 +27,7 @@ const BarraNavegacao = () => {
               { href: "/produtos", text: "Produtos" },
               { href: "/servicos", text: "Serviços" },
             ])}
-            {renderDropdownItems("CADASTRO", [
+            {renderDropdownItems("CADRASTO", [
               { href: "/cadastrar_cliente", text: "Cliente" },
               { href: "/cadastrar_produto", text: "Produto" },
               { href: "/cadastrar_servico", text: "Serviço" },
@@ -47,5 +47,3 @@ const BarraNavegacao = () => {
     </Navbar>
   );
 };
-
-export default BarraNavegacao;

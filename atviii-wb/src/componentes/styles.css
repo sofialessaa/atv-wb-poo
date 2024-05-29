@@ -1,34 +1,34 @@
-.navbar-lilac {
+.navbar {
   background-color: #ffffff;
 }
 
-.navbar-lilac .navbar-nav .nav-link {
+.navbar .navbar-nav .nav-link {
   color: #000000;
   margin-right: 15px;
 }
 
-.navbar-lilac .navbar-brand {
+.navbar .navbar-brand {
   color: #000000;
 }
 
-.navbar-lilac .navbar-toggler {
+.navbar .navbar-toggler {
   border-color: #FFFFFF;
 }
 
-.navbar-lilac .navbar-toggler-icon {
+.navbar .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%2888, 88, 88, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-.navbar-lilac .dropdown-menu {
+.navbar .dropdown-menu {
   background-color: #f5f5f5;
 }
 
-.navbar-lilac .dropdown-item {
+.navbar .dropdown-item {
   color: #000000;
 }
 
-.navbar-lilac .dropdown-item:hover,
-.navbar-lilac .dropdown-item:focus {
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus {
   background-color: #7c7c7c;
   color: #FFFFFF;
 }

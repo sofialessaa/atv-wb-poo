@@ -1,4 +1,3 @@
-import { PencilSimple, Eraser, Eye } from 'phosphor-react';
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import BarraNavegacao from '../../componentes/barraNavegacao';
@@ -17,7 +16,7 @@ export default function ListaProdutos(props){
                     <Table className= "table">
                         <thead className='table-light'>
                             <tr>
-                                <td>Id</td>
+                                <td>ID</td>
                                 <td>Produto</td>
                                 <td>Preço</td>
                                 <td>Editar</td>
@@ -30,18 +29,13 @@ export default function ListaProdutos(props){
                                 <td>Esmalte</td>
                                 <td>R$14,00</td>
                                 <td>
-                                    <div className="icons">
-                                        <a href="/editar_produto/1"><PencilSimple size={35} color="#198754"/></a>
-                                        <a href="/produtos/1"><Eye size={35} color="#0DCAF0"/></a>
-                                        <a href="##"><Eraser size={35} color="#DC3545"/></a>
-                                    </div>
-                                    <a href="/editar_produto/1">
-                                        <img src={editar} alt="Editar" className="icon"/>
+                                    <a href="/editar_produto">
+                                        <img src={editar} alt="Editar"/>
                                     </a>
                                 </td>
                                 <td>
                                     <a href="##">
-                                        <img src={excluir} alt="Editar" className="icon"/>
+                                        <img src={excluir} alt="Excluir"/>
                                     </a>
                                 </td>
                             </tr>
@@ -50,13 +44,13 @@ export default function ListaProdutos(props){
                                 <td>Shampoo</td>
                                 <td>R$24,99</td>
                                 <td>
-                                    <a href="##">
-                                        <img src={editar} alt="Editar" className="icon"/>
+                                    <a href="/editar_produto">
+                                        <img src={editar} alt="Editar"/>
                                     </a>
                                 </td>
                                 <td>
                                     <a href="##">
-                                        <img src={excluir} alt="Editar" className="icon"/>
+                                        <img src={excluir} alt="Excluir"/>
                                     </a>
                                 </td>
                             </tr>
@@ -65,13 +59,13 @@ export default function ListaProdutos(props){
                                 <td>Condicionador</td>
                                 <td>R$23,99</td>
                                 <td>
-                                    <a href="##">
-                                        <img src={editar} alt="Editar" className="icon"/>
+                                    <a href="/editar_produto">
+                                        <img src={editar} alt="Editar"/>
                                     </a>
                                 </td>
                                 <td>
                                     <a href="##">
-                                        <img src={excluir} alt="Editar" className="icon"/>
+                                        <img src={excluir} alt="Excluir"/>
                                     </a>
                                 </td>
                             </tr>
@@ -81,12 +75,12 @@ export default function ListaProdutos(props){
                                 <td>R$50,00</td>
                                 <td>
                                     <a href="##">
-                                        <img src={editar} alt="Editar" className="icon"/>
+                                        <img src={editar} alt="Editar"/>
                                     </a>
                                 </td>
                                 <td>
                                     <a href="##">
-                                        <img src={excluir} alt="Editar" className="icon"/>
+                                        <img src={excluir} alt="Editar"/>
                                     </a>
                                 </td>
                             </tr>
@@ -95,5 +89,5 @@ export default function ListaProdutos(props){
                 </div>
             </main>
         </section>
-    );   
+    );
 }

@@ -29,7 +29,7 @@ export default function CadastroServico(props){
                                 placeholder="0,00"
                             />
                         </div>
-                        <Button className="submit" variant="outline-dark" type='submit'>Cadastrar</Button>{' '}
+                        <Button className="submit" type='submit'>Cadastrar</Button>{' '}
                     </form>
                 </div>
             </main>
