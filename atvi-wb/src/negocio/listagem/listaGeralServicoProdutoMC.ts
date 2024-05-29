@@ -44,6 +44,7 @@ export default class ListaGeralServicoProdutoMC extends Listagem {
         })
         
         topProdutos.sort((prod1, prod2) => (prod1.quantidaDeProduto > prod2.quantidaDeProduto) ? -1 : 1)
+            console.log(`\n--------------------------------------`)
             console.log(`PRODUTOS:`);
 
             let ordemProd = 1;
@@ -75,6 +76,7 @@ export default class ListaGeralServicoProdutoMC extends Listagem {
         })
 
         topServicos.sort((serv1, serv2) => (serv1.quantidadeServico > serv2.quantidadeServico) ? -1 : 1)
+            console.log(`\n--------------------------------------`)
             console.log(`SERVIÇOS:`);
 
             let ordemServ = 1;

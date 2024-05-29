@@ -16,19 +16,19 @@ export default class ListaClientesPorGenero extends Listagem {
         const outros = this.clientes.filter(cliente => cliente.genero === Genero.OUTRO);
         
         console.log(`\n--------------------------------------`);
-        console.log(`Lista dos clientes do sexo feminino:\n`);
+        console.log(`Lista dos clientes do sexo FEMININO:\n`);
         mulheres.forEach(cliente => {
             console.log(`Nome: ` + cliente.nome + ` e CPF: ` + cliente.getCpf.getValor);
         });
 
         console.log(`\n--------------------------------------`);
-        console.log(`Lista dos clientes do sexo masculino:\n`);
+        console.log(`Lista dos clientes do sexo MASCULINO:\n`);
         homens.forEach(cliente => {
             console.log(`Nome: ` + cliente.nome + ` e CPF: ` + cliente.getCpf.getValor);
         });
 
         console.log(`\n--------------------------------------`);
-        console.log(`Lista dos clientes de outro gênero:\n`);
+        console.log(`Lista dos clientes do gênero OUTRO:\n`);
         outros.forEach(cliente => {
             console.log(`Nome: ` + cliente.nome + ` e CPF: ` + cliente.getCpf.getValor);
         });

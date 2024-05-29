@@ -1,3 +1,4 @@
+/* listagem de produtos/serviços mais consumidos por gênero */
 import Cliente from "../../modelo/cliente";
 import Produto from "../../modelo/produto";
 import Servico from "../../modelo/servico";
@@ -17,7 +18,7 @@ export default class ListaServicoProdutoMCGenero extends Listagem {
     }
 
     public listar(): void {
-        console.log(`Listagem de produtos/serviços mais consumidos por gênero:`);
+        console.log(`Listagem de produtos ou serviços mais consumidos por gênero:`);
 
         const topProdutosFeminino: { nome: string, valor: number, quantidade: number }[] = [];
         const topServicosFeminino: { nome: string, valor: number, quantidade: number }[] = [];
@@ -35,9 +36,12 @@ export default class ListaServicoProdutoMCGenero extends Listagem {
         this.contarConsumos(Genero.FEMININO, topProdutosFeminino, topServicosFeminino);
         this.contarConsumos(Genero.MASCULINO, topProdutosMasculino, topServicosMasculino);
         this.contarConsumos(Genero.OUTRO, topProdutosOutro, topServicosOutro);
-
+        
+        console.log(`\n--------------------------------------`)
         this.imprimirTopConsumos(`FEMININO`, topProdutosFeminino, topServicosFeminino);
+        console.log(`\n--------------------------------------`)
         this.imprimirTopConsumos(`MASCULINO`, topProdutosMasculino, topServicosMasculino);
+        console.log(`\n--------------------------------------`)
         this.imprimirTopConsumos(`OUTRO`, topProdutosOutro, topServicosOutro);
     }
 
