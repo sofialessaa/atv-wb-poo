@@ -23,6 +23,7 @@ export default function ListaClientes(props) {
                             <td>Gênero</td>
                             <td>CPF</td>
                             <td>RG</td>
+                            <td>UF-RG</td>
                             <td>Telefone</td>
                             <td>Editar</td>
                             <td>Excluir</td>
@@ -36,6 +37,7 @@ export default function ListaClientes(props) {
                             <td>Feminino</td>
                             <td>131.313.131-31</td>
                             <td>13.131.313-1</td>
+                            <td>PI</td>
                             <td>(12) 99812-3767</td>
                             <td>
                                 <a href="/editar_cliente">
@@ -55,6 +57,7 @@ export default function ListaClientes(props) {
                             <td>Masculino</td>
                             <td>091.845.112-07</td>
                             <td>67.492.120-2</td>
+                            <td>SP</td>
                             <td>(11) 90123-9456</td>
                             <td>
                                 <a href="/editar_cliente">
@@ -74,6 +77,7 @@ export default function ListaClientes(props) {
                             <td>Feminino</td>
                             <td>390.891.678-02</td>
                             <td>39.915.865-7</td>
+                            <td>MA</td>
                             <td>(86) 99912-1313</td>
                             <td>
                                 <a href="/editar_cliente">
@@ -93,6 +97,7 @@ export default function ListaClientes(props) {
                             <td>Outro</td>
                             <td>978.123.035-56</td>
                             <td>13.009.547-X</td>
+                            <td>RJ</td>
                             <td>(81) 98761-1782</td>
                             <td>
                                 <a href="/editar_cliente">

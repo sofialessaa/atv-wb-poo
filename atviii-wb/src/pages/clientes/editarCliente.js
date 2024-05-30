@@ -43,6 +43,10 @@ export default function EditarCliente(props){
                             <input type="text" />
                         </div>
                         <div className="field">
+                            <label htmlFor="rg">UF do RG:</label>
+                            <input type="text" />
+                        </div>
+                        <div className="field">
                             <label htmlFor="Telefone">Telefone:</label>
                             <input type="text" />
                         </div>
