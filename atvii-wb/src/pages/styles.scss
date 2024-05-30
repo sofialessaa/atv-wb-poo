@@ -29,9 +29,9 @@ form {
 .field .input-mask {
   width: 100%; 
   padding: 10px; 
-  background-color: #f0f0f0; 
+  background-color: #ffffff; 
   border: 1px solid #ccc; 
-  border-radius: 10px; 
+  border-radius: 5px; 
   outline: none;
   box-sizing: border-box; 
 }
@@ -39,23 +39,25 @@ form {
 .field input:focus,
 .field select:focus,
 .field .input-mask:focus {
-  border-color: #007bff; 
+  border-color: #eed5f1; 
 }
 
 .submit {
   width: 20%;
   margin-top: 25px;
   padding: 10px 20px; 
-  background-color: #007bff; 
-  color: white; 
-  border: none;
-  border-radius: 10px; 
+  background-color: #f5e8f7; 
+  color: black; 
+  border-color: #eed5f1;
+  border-radius: 15px; 
   cursor: pointer;
   transition: background-color 0.3s ease; 
 }
 
 .submit:hover {
-  background-color: #0056b3; 
+  background-color: #eed5f1; 
+  color: black;
+  border: none;
 }
 
 main h1 {
@@ -68,20 +70,20 @@ main h1 {
   gap: 20px;
 }
 .submit-editar {
-  &.btn {
-    &.btn-outline-dark {
-      color: white;
-      border: none;
-      background-color: #007bff;
-      padding: 10px 20px; 
-      border-radius: 10px; 
-      
-      &:hover {
-        background-color: #0056b3;
-        color: #fff;
-      }
-    }
-  }
+  width: 40%;
+  margin-top: 25px;
+  padding: 10px 20px; 
+  background-color: #f5e8f7; 
+  color: black; 
+  border-color: #eed5f1;
+  border-radius: 15px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+}
+.submit-editar:hover{
+  background-color: #eed5f1;
+  color: black;
+  border: none;
 }
 
 .tables {
@@ -112,13 +114,6 @@ main h1 {
       flex-direction: column;
       gap: 5px;
   }
-
-  .button-editar {
-    display: none;
-    flex-direction: column;
-    gap: 10px; 
-  }
-  
 }
 
 //scss para lista.tsx
