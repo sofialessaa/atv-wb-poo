@@ -1,19 +1,9 @@
+# Inicie o backend
 
-
-Cliente
-npx sequelize-cli model:generate --name cliente --attributes nomeCliente:string,nomeSocial:string,genero:string,cpfCliente:string,dataEmissaoCpf:string,RGCliente:string,dataEmissaoRG:string,ufRG:string,telefoneCliente:string
-
-Produto
-npx sequelize-cli model:generate --name produtos --attributes nome:string,preco:decimal
-
-Serviços
-npx sequelize-cli model:generate --name servicos --attributes nome:string,preco:decimal
-
-
-Consumo Produto
-npx sequelize-cli model:generate --name consumoProduto --attributes nome:string,cpf:string,produto:string,quantidade:string,preco:decimal
-
-Consumo Servico
-npx sequelize-cli model:generate --name consumoServico --attributes nome:string,cpf:string,servico:string,preco:decimal
-
-npx sequelize-cli db:migrate
+Primeiro abra o terminal no Visual Studio Code e escreva:
+##### 1. `cd atviii-wb`
+##### 2. `cd backtend`
+##### 3. `npm install`
+##### 4. Criar o database `worldBeauty` no banco de dados mysql.
+##### 5. `npx sequelize-cli db:migrate`
+##### 6. `nodemon app.js` ou `node app.js`
