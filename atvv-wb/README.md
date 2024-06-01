@@ -11,6 +11,7 @@ Para rodar a atvv-wb vc precisa executar os comandos que estão presentes nas pa
 <hr>
 
 ## Rodando o Backend
+Se estiver com o termianl aberto na pasta frontend, basta escrever esse comando `cd ..` e pular pro passo 2.
 ##### 1. `cd atviii-wb`
 ##### 2. `cd backtend`
 ##### 3. `npm install`
