@@ -4,18 +4,19 @@ Para rodar a atvv-wb vc precisa executar os comandos que estão presentes nas pa
 <hr>
 
 ## Rodando o Frontend
-##### 1. `cd atviii-wb`
-##### 2. `cd frontend`
-##### 3. `npm install`
-##### 4. `npm start`
+##### 1. Abra o terminal powershell
+##### 2. `cd atviii-wb`
+##### 3. `cd frontend`
+##### 4. `npm install`
+##### 5. `npm start`
 <hr>
 
 ## Rodando o Backend
-Se estiver com o termianl aberto na pasta frontend, basta escrever esse comando `cd ..` e pular pro passo 2.
-##### 1. `cd atviii-wb`
-##### 2. `cd backtend`
-##### 3. `npm install`
-##### 4. Criar o database `worldBeauty` no banco de dados mysql.
-##### 5. Coloque a senha do seu mysql no arquivo .env que esta presente na pasta backend -> `DB_PASS= exemploSenha #Senha do banco de dados`
-##### 5. `npx sequelize-cli db:migrate`
-##### 6. `nodemon app.js` ou `node app.js`
+##### 1. Abra um novo terminal cmd
+##### 2. `cd atviii-wb`
+##### 3. `cd backtend`
+##### 4. `npm install`
+##### 5. Criar o database `worldBeauty` no banco de dados mysql.
+##### 6. Coloque a senha do seu mysql no arquivo .env que esta presente na pasta backend -> `DB_PASS= exemploSenha #Senha do banco de dados`
+##### 7. `npx sequelize-cli db:migrate`
+##### 8. `nodemon app.js` ou `node app.js`
