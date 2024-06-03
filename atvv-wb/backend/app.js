@@ -4,6 +4,7 @@ const cors = require('cors');
 const moment = require('moment');
 const mysql = require('mysql2/promise');
 const app = express();
+require('dotenv').config(); 
 
 app.use(express.json());
 app.use(cors());
@@ -18,11 +19,13 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, "public")));
 
 const connection = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'olivia',
-    database: 'worldBeauty'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_BASE,
+    dialect: process.env.DB_DIALECT 
 });
+module.exports = connection;
 
 /* cliente */
 app.post('/cadastrar_cliente', async (req, res) => {
