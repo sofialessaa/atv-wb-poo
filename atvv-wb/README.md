@@ -14,7 +14,7 @@ Para rodar a atvv-wb vc precisa executar os comandos que estão presentes nas pa
 ## Rodando o Backend
 ##### 1. Abra um novo terminal cmd
 ##### 2. `cd atvv-wb`
-##### 3. `cd backtend`
+##### 3. `cd backend`
 ##### 4. `npm install`
 ##### 5. Criar o database `worldBeauty` no banco de dados mysql.
 ##### 6. Coloque a senha do seu mysql no arquivo .env que esta presente na pasta backend -> `DB_PASS= exemploSenha #Senha do banco de dados`
