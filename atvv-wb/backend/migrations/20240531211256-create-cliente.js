@@ -38,6 +38,9 @@ module.exports = {
       telefone: {
         type: Sequelize.STRING
       },
+      email: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATEONLY

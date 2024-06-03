@@ -22,7 +22,8 @@ module.exports = (sequelize, DataTypes) => {
     rg: DataTypes.STRING,
     UF_RG: DataTypes.STRING,
     dataEmissaoRG: DataTypes.STRING,
-    telefone: DataTypes.STRING
+    telefone: DataTypes.STRING,
+    email: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'cliente',

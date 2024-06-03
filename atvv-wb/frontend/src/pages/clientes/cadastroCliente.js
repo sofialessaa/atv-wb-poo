@@ -17,6 +17,7 @@ export default function CadastroClientes(props){
     const [dataEmissaoRG, setDataEmissaoRG] = useState('');
     const [UF_RG, setUF_RG] = useState('');
     const [telefone, setTelefone] = useState('');   
+    const [email, setEmail] = useState('');   
     
     const cadastrarCliente = async () => {
         try {
@@ -30,6 +31,7 @@ export default function CadastroClientes(props){
                 UF_RG:UF_RG,
                 dataEmissaoRG:dataEmissaoRG,
                 telefone:telefone,
+                email:email,
             }; 
             console.log("Adicionando cliente", newData);
             await axios.post('http://localhost:8080/cadastrar_cliente', newData);
@@ -43,6 +45,7 @@ export default function CadastroClientes(props){
             setDataEmissaoRG('')
             setUF_RG('')
             setTelefone('')
+            setEmail('')
         } catch (error) {
             console.error("Erro ao adicionar cliente:", error);
         }
@@ -66,6 +69,10 @@ export default function CadastroClientes(props){
                             <input type="text" value={nomeSocial} onChange={event => setNomeSocial(event.target.value)}/>
                         </div>
                         <div className="field">
+                            <label htmlFor="Email">Email:</label>
+                            <input type="text" value={email} onChange={event => setEmail(event.target.value)} />
+                        </div>
+                        <div className="field">
                             <label htmlFor="Genero">Gênero:</label>
                             <select name="genero" id="genero" value={genero} onChange={event => setGenero(event.target.value)}>
                                 <option>- Selecione seu gênero -</option>
@@ -73,10 +80,6 @@ export default function CadastroClientes(props){
                                 <option>Masculino</option>
                                 <option>Outro</option>
                             </select>
-                        </div>
-                        <div className="field">
-                            <label htmlFor="Email">Email:</label>
-                            <input type="text" /* value={email} onChange={event => setEmail(event.target.value)} *//>
                         </div>
                         <div className="field">
                         <label htmlFor="telefone">Telefone: adicionar telefone</label>
@@ -115,61 +118,75 @@ export default function CadastroClientes(props){
                                     />
                                 </div>
                             </div>
-                            <div className="field">
-                            <label htmlFor="rg">RG:</label>
-                            <InputMask
-                                mask="99.999.999-9"
-                                placeholder="00.000.000-0"
-                                value={rg}
-                                onChange={event => setRg(event.target.value)}
-                                type="text"
-                            />
-                            </div>
-                            <div className="field">
-                                <label htmlFor="dataEmissaoRG">Data da Emissao-RG:</label>
+                            <div className="campo-rg">
+                                <div className="field">
+                                <label htmlFor="rg">RG:</label>
                                 <InputMask
-                                    mask="99/99/9999"
-                                    placeholder="__/__/____"
-                                    value={dataEmissaoRG}
-                                    onChange={event => setDataEmissaoRG(event.target.value)}
+                                    mask="99.999.999-9"
+                                    placeholder="00.000.000-0"
+                                    value={rg}
+                                    onChange={event => setRg(event.target.value)}
+                                    type="text"
                                 />
-                            </div>
-                            <div className="field">
-                                <label htmlFor="UF">UF do RG:</label>
-                                <input type="text" value={UF_RG} onChange={event => setUF_RG(event.target.value)}/>
+                                </div>
+                                <div className="field">
+                                    <label htmlFor="dataEmissaoRG">Data da Emissao-RG:</label>
+                                    <InputMask
+                                        mask="99/99/9999"
+                                        placeholder="__/__/____"
+                                        value={dataEmissaoRG}
+                                        onChange={event => setDataEmissaoRG(event.target.value)}
+                                    />
+                                </div>
+                                <div className="field">
+                                    <label htmlFor="UF">UF do RG:</label>
+                                    <input type="text" value={UF_RG} onChange={event => setUF_RG(event.target.value)}/>
+                                </div>
                             </div>
                         </form>
 
                         {/* campo 3 */}
                         <form className="campo-cadastro3">
                             <h1>Cadastrar endereço</h1>
-                            <div className="field">
-                                <label htmlFor="Estado">Estado:</label>
-                                <input type="text" /* value={UF_RG} onChange={event => setUF_RG(event.target.value)} *//>
+                            <div className="campo1">
+                                <div className="field">
+                                    <label htmlFor="Estado">Estado:</label>
+                                    <input type="text" /* value={UF_RG} onChange={event => setUF_RG(event.target.value)} *//>
+                                </div>
+                                <div className="field">
+                                    <label htmlFor="Cidade">Cidade:</label>
+                                    <input type="text" /* value={UF_RG} onChange={event => setUF_RG(event.target.value)} *//>
+                                </div>
+                                <div className="field">
+                                    <label htmlFor="Bairro">Bairro:</label>
+                                    <input type="text" /* value={UF_RG} onChange={event => setUF_RG(event.target.value)} *//>
+                                </div>
                             </div>
-                            <div className="field">
-                                <label htmlFor="Cidade">Cidade:</label>
-                                <input type="text" /* value={UF_RG} onChange={event => setUF_RG(event.target.value)} *//>
+                            <div className="campo2">
+                                <div className="field">
+                                    <label htmlFor="Rua">Rua:</label>
+                                    <input type="text" /* value={UF_RG} onChange={event => setUF_RG(event.target.value)} *//>
+                                </div>
+                                <div className="field">
+                                    <label htmlFor="Número">Número:</label>
+                                    <input type="text" /* value={UF_RG} onChange={event => setUF_RG(event.target.value)} *//>
+                                </div>
                             </div>
-                            <div className="field">
-                                <label htmlFor="Bairro">Bairro:</label>
-                                <input type="text" /* value={UF_RG} onChange={event => setUF_RG(event.target.value)} *//>
-                            </div>
-                            <div className="field">
-                                <label htmlFor="Rua">Rua:</label>
-                                <input type="text" /* value={UF_RG} onChange={event => setUF_RG(event.target.value)} *//>
-                            </div>
-                            <div className="field">
-                                <label htmlFor="Número">Número:</label>
-                                <input type="text" /* value={UF_RG} onChange={event => setUF_RG(event.target.value)} *//>
-                            </div>
-                            <div className="field">
-                                <label htmlFor="CEP">Código Postal:</label>
-                                <input type="text" /* value={UF_RG} onChange={event => setUF_RG(event.target.value)} *//>
-                            </div>
-                            <div className="field">
-                                <label htmlFor="Informações adicionais">Informações adicionais:</label>
-                                <input type="text" /* value={UF_RG} onChange={event => setUF_RG(event.target.value)} *//>
+                            <div className="campo3">
+                                <div className="field">
+                                    <label htmlFor="CEP">Código Postal:</label>
+                                    <InputMask
+                                    mask="99999-999"
+                                    placeholder="00000-000"
+                                    /* value={rg}
+                                    onChange={event => setRg(event.target.value)} */
+                                    type="text"
+                                    />
+                                </div>
+                                <div className="field">
+                                    <label htmlFor="Informações adicionais">Informações adicionais:</label>
+                                    <input type="text" /* value={UF_RG} onChange={event => setUF_RG(event.target.value)} *//>
+                                </div>
                             </div>
                         </form>
                     </div>
