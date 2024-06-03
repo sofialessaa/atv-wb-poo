@@ -54,9 +54,9 @@ export default function CadastroClientes(props){
                 <BarraNavegacao/>
             </header>
             <main>
-                <h1>Cadastrar Cliente</h1>
                 <div className="forms">
-                    <form>
+                    <form className="campo-cadastro1">
+                        <h1>Cadastrar Cliente</h1>
                         <div className="field">
                             <label htmlFor="Nome">Nome completo:</label>
                             <input type="text" value={nome} onChange={event => setNome(event.target.value)}/>
@@ -75,49 +75,11 @@ export default function CadastroClientes(props){
                             </select>
                         </div>
                         <div className="field">
-                        <label htmlFor="cpf">CPF:</label>
-                        <InputMask
-                            mask="999.999.999-99"
-                            placeholder="000.000.000-00"
-                            value={cpf}
-                            onChange={event => setCpf(event.target.value)}
-                            type="text"
-                        />
+                            <label htmlFor="Email">Email:</label>
+                            <input type="text" /* value={email} onChange={event => setEmail(event.target.value)} *//>
                         </div>
                         <div className="field">
-                            <label htmlFor="dataEmissaoCPF">Data da Emissao-CPF:</label>
-                            <InputMask
-                                mask="99/99/9999"
-                                placeholder="__/__/____"
-                                value={dataEmissaoCpf}
-                                onChange={event => setDataEmissaoCpf(event.target.value)}
-                            />
-                        </div>
-                        <div className="field">
-                        <label htmlFor="rg">RG:</label>
-                        <InputMask
-                            mask="99.999.999-9"
-                            placeholder="00.000.000-0"
-                            value={rg}
-                            onChange={event => setRg(event.target.value)}
-                            type="text"
-                        />
-                        </div>
-                        <div className="field">
-                            <label htmlFor="dataEmissaoRG">Data da Emissao-RG:</label>
-                            <InputMask
-                                mask="99/99/9999"
-                                placeholder="__/__/____"
-                                value={dataEmissaoRG}
-                                onChange={event => setDataEmissaoRG(event.target.value)}
-                            />
-                        </div>
-                        <div className="field">
-                            <label htmlFor="UF">UF do RG:</label>
-                            <input type="text" value={UF_RG} onChange={event => setUF_RG(event.target.value)}/>
-                        </div>
-                        <div className="field">
-                        <label htmlFor="telefone">Telefone:</label>
+                        <label htmlFor="telefone">Telefone: adicionar telefone</label>
                         <InputMask
                             mask="(99) 99999-9999"
                             placeholder="(00) 00000-0000"
@@ -128,6 +90,89 @@ export default function CadastroClientes(props){
                         </div>
                         <Button className="submit" type='button' onClick={cadastrarCliente}>Cadastrar</Button>{' '}
                     </form>
+                    <div className="campo-direita">
+                        {/* campo 2 */}
+                        <form className="campo-cadastro2">
+                            <h1>Cadastrar dados pessoais</h1>
+                            <div className="campo-cpf">
+                                <div className="field">
+                                <label htmlFor="cpf">CPF:</label>
+                                <InputMask
+                                    mask="999.999.999-99"
+                                    placeholder="000.000.000-00"
+                                    value={cpf}
+                                    onChange={event => setCpf(event.target.value)}
+                                    type="text"
+                                />
+                                </div>
+                                <div className="field">
+                                    <label htmlFor="dataEmissaoCPF">Data da Emissao-CPF:</label>
+                                    <InputMask
+                                        mask="99/99/9999"
+                                        placeholder="__/__/____"
+                                        value={dataEmissaoCpf}
+                                        onChange={event => setDataEmissaoCpf(event.target.value)}
+                                    />
+                                </div>
+                            </div>
+                            <div className="field">
+                            <label htmlFor="rg">RG:</label>
+                            <InputMask
+                                mask="99.999.999-9"
+                                placeholder="00.000.000-0"
+                                value={rg}
+                                onChange={event => setRg(event.target.value)}
+                                type="text"
+                            />
+                            </div>
+                            <div className="field">
+                                <label htmlFor="dataEmissaoRG">Data da Emissao-RG:</label>
+                                <InputMask
+                                    mask="99/99/9999"
+                                    placeholder="__/__/____"
+                                    value={dataEmissaoRG}
+                                    onChange={event => setDataEmissaoRG(event.target.value)}
+                                />
+                            </div>
+                            <div className="field">
+                                <label htmlFor="UF">UF do RG:</label>
+                                <input type="text" value={UF_RG} onChange={event => setUF_RG(event.target.value)}/>
+                            </div>
+                        </form>
+
+                        {/* campo 3 */}
+                        <form className="campo-cadastro3">
+                            <h1>Cadastrar endereço</h1>
+                            <div className="field">
+                                <label htmlFor="Estado">Estado:</label>
+                                <input type="text" /* value={UF_RG} onChange={event => setUF_RG(event.target.value)} *//>
+                            </div>
+                            <div className="field">
+                                <label htmlFor="Cidade">Cidade:</label>
+                                <input type="text" /* value={UF_RG} onChange={event => setUF_RG(event.target.value)} *//>
+                            </div>
+                            <div className="field">
+                                <label htmlFor="Bairro">Bairro:</label>
+                                <input type="text" /* value={UF_RG} onChange={event => setUF_RG(event.target.value)} *//>
+                            </div>
+                            <div className="field">
+                                <label htmlFor="Rua">Rua:</label>
+                                <input type="text" /* value={UF_RG} onChange={event => setUF_RG(event.target.value)} *//>
+                            </div>
+                            <div className="field">
+                                <label htmlFor="Número">Número:</label>
+                                <input type="text" /* value={UF_RG} onChange={event => setUF_RG(event.target.value)} *//>
+                            </div>
+                            <div className="field">
+                                <label htmlFor="CEP">Código Postal:</label>
+                                <input type="text" /* value={UF_RG} onChange={event => setUF_RG(event.target.value)} *//>
+                            </div>
+                            <div className="field">
+                                <label htmlFor="Informações adicionais">Informações adicionais:</label>
+                                <input type="text" /* value={UF_RG} onChange={event => setUF_RG(event.target.value)} *//>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </main>
         </section>

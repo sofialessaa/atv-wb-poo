@@ -5,7 +5,7 @@ Para rodar a atvv-wb vc precisa executar os comandos que estão presentes nas pa
 
 ## Rodando o Frontend
 ##### 1. Abra o terminal powershell
-##### 2. `cd atviii-wb`
+##### 2. `cd atvv-wb`
 ##### 3. `cd frontend`
 ##### 4. `npm install`
 ##### 5. `npm start`
@@ -13,7 +13,7 @@ Para rodar a atvv-wb vc precisa executar os comandos que estão presentes nas pa
 
 ## Rodando o Backend
 ##### 1. Abra um novo terminal cmd
-##### 2. `cd atviii-wb`
+##### 2. `cd atvv-wb`
 ##### 3. `cd backtend`
 ##### 4. `npm install`
 ##### 5. Criar o database `worldBeauty` no banco de dados mysql.
