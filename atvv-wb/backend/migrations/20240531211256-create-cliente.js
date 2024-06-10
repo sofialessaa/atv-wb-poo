@@ -15,6 +15,9 @@ module.exports = {
       nomeSocial: {
         type: Sequelize.STRING
       },
+      email: {
+        type: Sequelize.STRING
+      },
       genero: {
         type: Sequelize.STRING
       },
@@ -29,16 +32,31 @@ module.exports = {
         type: Sequelize.STRING,
         unique: true
       },
-      UF_RG: {
+      uf_rg: {
         type: Sequelize.STRING
       },
       dataEmissaoRG: {
         type: Sequelize.STRING
       },
-      telefone: {
+      estado: {
         type: Sequelize.STRING
       },
-      email: {
+      cidade: {
+        type: Sequelize.STRING
+      },
+      bairro: {
+        type: Sequelize.STRING
+      },
+      rua: {
+        type: Sequelize.STRING
+      },
+      numero: {
+        type: Sequelize.STRING
+      },
+      cep: {
+        type: Sequelize.STRING
+      },
+      informacoes_adicionais: {
         type: Sequelize.STRING
       },
       createdAt: {

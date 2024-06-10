@@ -36,7 +36,7 @@ export default function BarraNavegacao(props) {
               { href: "/comprar_produtos", text: "Produtos" },
               { href: "/comprar_servicos", text: "Serviços" },
             ])}
-            {renderDropdownItems("LISTAS DE PEDIDOS", [
+            {renderDropdownItems("PEDIDOS", [
               { href: "/listar_produtos", text: "Pedidos de produtos" },
               { href: "/listar_servicos", text: "Pedidos de serviços" },
             ])}

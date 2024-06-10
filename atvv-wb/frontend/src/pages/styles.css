@@ -7,26 +7,55 @@ h1 {
   margin: 0 auto;
   padding: 50px 0px 0px 0px;
   box-sizing: border-box;
-  justify-content: space-between;
+  justify-content: center;
   gap: 30px;
   display: flex;
   flex-direction: row;
 }
+
+.form-padrao {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center; /* aqui que eu altero */
+  justify-content: center;
+}
+
+.form-padrao  .field {
+  width: 350px;
+}
+.form-padrao .field input{
+  width: 350px;
+}
+
+.forms-editar .field {
+  width: 350px;
+}
+.forms-editar .field input{
+  width: 350px;
+}
 .campo-cadastro1 {
   width: 100%;
   height: 100%;
+  /* max-width: 455px; */
   display: flex;
   flex-direction: column;
   justify-content: left;
+  align-items: left !important;
   gap: 20px;
   align-items: left;
   border-radius: 20px !important;
   box-shadow: rgba(0, 0, 0, 0.247) 0px 5px 16px !important;
   padding: 0px 20px 0px 20px;
+
 }
+
+
 .campo-direita{
   width: 100%;
   height: 50%;
+  max-width: 850px;
   justify-content: space-between;
   gap: 30px;
   display: flex;
@@ -90,14 +119,6 @@ h1 {
   }
 }
 
-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center; /* aqui que eu altero */
-}
-
 .field {
   width: 50%;
   display: flex;
@@ -124,6 +145,7 @@ form {
 
 .submit {
   width: 20%;
+  max-width: 170px;
   margin-top: 25px;
   padding: 10px 20px;
   background-color: #f5e8f7; 
@@ -246,4 +268,43 @@ main {
 
 .listagem .mb-2 {
   margin-top: 25px;
+}
+.clickavel{
+  cursor: pointer;
+}
+.clickavel:hover{
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.content-modal{
+  margin-bottom: 100px;
+}
+
+.telefone{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.campo-cadastro-lista {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+/*   justify-content: center; */
+  align-items: center !important;
+  gap: 20px;
+  border-radius: 20px !important;
+  box-shadow: rgba(0, 0, 0, 0.247) 0px 5px 16px !important;
+  padding: 0px 20px 0px 20px;
+
+}
+.tables-lista {
+  width: 90%;
+  height: 100%;
+  margin: 25px 10px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  
 }

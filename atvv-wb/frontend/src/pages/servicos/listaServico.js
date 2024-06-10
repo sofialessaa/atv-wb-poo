@@ -5,6 +5,7 @@ import excluir from "../images/excluir.svg";
 import editar from "../images/editar.svg";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 
 export default function ListaServicos(props){
     const [chartData, setChartData] = useState([]);
@@ -68,9 +69,7 @@ export default function ListaServicos(props){
                             <td>{servico.nome}</td>
                             <td>{`R$ ${servico.preco.toFixed(2)}`}</td>
                             <td>
-                                <a href="##">
-                                    <img src={editar} alt="Editar"/>
-                                </a>
+                            <Link to={`/editar_servico/${servico.id}`}><img src={editar} alt="Editar"/></Link>
                             </td>
                             <td>
                                 <a href="##">

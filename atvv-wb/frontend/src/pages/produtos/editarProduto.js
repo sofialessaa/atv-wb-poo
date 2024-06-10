@@ -1,9 +1,47 @@
-import React from 'react';
-import CurrencyInput from 'react-currency-input-field';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import BarraNavegacao from '../../componentes/barraNavegacao';
+import axios from "axios"; 
+import { useParams } from 'react-router-dom';
+import '../styles.css';
 
 export default function EditarProduto(props){
+    const { id } = useParams();
+    const [produto, setProduto] = useState({ nome: '', preco: '' });
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/produtos/${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((resp) => resp.json())
+            .then((data) => {
+                setProduto(data)
+                setNome(data.nome)
+                setPreco(data.preco)
+            })
+            .catch((err) => console.log)
+    }, [id]);
+
+    const [nome, setNome] = useState('');
+    const [preco, setPreco] = useState('');
+
+    const editarProduto = async () => {
+        console.log(nome, preco)
+        try{
+            const newData = {
+                id: id,
+                nome: nome,
+                preco: preco,
+            }
+            await axios.put('http://localhost:8080/editar_produto', newData)
+        }catch (error) {
+            console.error("Erro ao editar produto:", error);
+        }
+    };
+
     return (
         <section>
             <header>
@@ -11,26 +49,18 @@ export default function EditarProduto(props){
             </header>
             <main>
                 <h1>Editar Produto</h1>
-                <div className="forms">
+                <div className="forms-editar">
                     <form>
                         <div className="field">
                             <label htmlFor="Produto">Produto:</label>
-                            <input type="text"/>
+                            <input type="text" value={nome} placeholder={produto.nome} onChange={event => setNome(event.target.value)}/>
                         </div>
                         <div className="field">
                             <label htmlFor="Preco">Preço:</label>
-                            <CurrencyInput
-                                id="Preco"
-                                name="Preco"
-                                prefix="R$"
-                                decimalsLimit={2}
-                                decimalSeparator=","
-                                groupSeparator="."
-                                placeholder="0,00"
-                            />
+                            <input type="text" value={preco} placeholder={produto.preco} onChange={event => setPreco(event.target.value)}/>
                         </div>
                         <div className='button-editar'>
-                            <Button className="submit-editar" type='submit'>Editar</Button>{' '}
+                            <Button className="submit-editar" type='button' onClick={editarProduto} href='/produtos' >Editar</Button>{' '}
                             <Button className="submit-editar" href='/produtos'>Voltar</Button>
                         </div>
                     </form>

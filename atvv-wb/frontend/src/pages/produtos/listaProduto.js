@@ -4,12 +4,11 @@ import BarraNavegacao from '../../componentes/barraNavegacao';
 import excluir from "../images/excluir.svg";
 import editar from "../images/editar.svg";
 import axios from "axios";
-import { useEffect, useState/* , useNavigate */ } from "react";
+import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 
 export default function ListaProdutos(props){
     const [chartData, setChartData] = useState([]);
-   /*  const [selecionado, setSelecionado] = useState('');  
-    const navigate = useNavigate(); */
     
     useEffect(() => {
       fetchData();
@@ -44,12 +43,6 @@ export default function ListaProdutos(props){
         }
     };
 
-/*      const editarProduto = (id) => 
-      {
-        setSelecionado(id)
-        navigate(`/atualizar/${selecionado}`);
-      };  */
-
     return (
         <section>
             <header>
@@ -73,78 +66,15 @@ export default function ListaProdutos(props){
                             <tr key={produto.id}>
                             <td>{index + 1}</td>
                             <td>{produto.nome}</td>
-                            <td>{`R$ ${produto.preco.toFixed(2)}`}</td>
+                            <td>{`R$ ${produto.preco.toFixed(2)/* .replace('.',',') */}`}</td> 
                             <td>
-                                <img src={editar} alt="Editar" /* onClick={editarProduto(produto.id)} *//>
+                                <Link to={`/editar_produto/${produto.id}`}><img src={editar} alt="Editar"/></Link>
                             </td>
                             <td>
-                                <a href="##">
-                                    <img src={excluir} alt="Excluir" onClick={() => deletarProduto(produto.id)}/>
-                                </a>
+                                <img src={excluir} alt="Excluir" onClick={() => deletarProduto(produto.id)}/>
                             </td>
                             </tr>
                         ))}
-
-{/*                             <tr>
-                                <td>1</td>
-                                <td>Esmalte</td>
-                                <td>R$14,00</td>
-                                <td>
-                                    <a href="/editar_produto">
-                                        <img src={editar} alt="Editar"/>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="##">
-                                        <img src={excluir} alt="Excluir"/>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Shampoo</td>
-                                <td>R$24,99</td>
-                                <td>
-                                    <a href="/editar_produto">
-                                        <img src={editar} alt="Editar"/>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="##">
-                                        <img src={excluir} alt="Excluir"/>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Condicionador</td>
-                                <td>R$23,99</td>
-                                <td>
-                                    <a href="/editar_produto">
-                                        <img src={editar} alt="Editar"/>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="##">
-                                        <img src={excluir} alt="Excluir"/>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Creme para cabelo cacheado</td>
-                                <td>R$50,00</td>
-                                <td>
-                                    <a href="##">
-                                        <img src={editar} alt="Editar"/>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="##">
-                                        <img src={excluir} alt="Editar"/>
-                                    </a>
-                                </td>
-                            </tr> */}
                         </tbody>
                     </Table>
                 </div>

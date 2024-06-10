@@ -24,7 +24,7 @@ export default function Listas(props){
                 <td>10 clientes que mais consumiram em quantidade.</td>
                 <td>
                   <div>
-                    <Button variant="light" href="##">Visualizar</Button>{" "}
+                    <Button variant="light" href="/lista1">Visualizar</Button>{" "}
                   </div>
                 </td>
               </tr>
@@ -32,7 +32,7 @@ export default function Listas(props){
                 <td>Todos os clientes por gênero.</td>
                 <td>
                   <div>
-                    <Button variant="light" href="##">Visualizar</Button>{" "}
+                    <Button variant="light" href="/lista2">Visualizar</Button>{" "}
                   </div>
                 </td>
               </tr>
@@ -40,7 +40,7 @@ export default function Listas(props){
                 <td>Produtos e serviços gerais mais consumidos.</td>
                 <td>
                   <div>
-                    <Button variant="light" href="##">Visualizar</Button>{" "}
+                    <Button variant="light" href="/lista3">Visualizar</Button>{" "}
                   </div>
                 </td>
               </tr>
@@ -48,7 +48,7 @@ export default function Listas(props){
                 <td>Produtos ou serviços mais consumidos por gênero.</td>
                 <td>
                   <div>
-                    <Button variant="light" href="##">Visualizar</Button>{" "}
+                    <Button variant="light" href="/lista4">Visualizar</Button>{" "}
                   </div>
                 </td>
               </tr>
@@ -56,7 +56,7 @@ export default function Listas(props){
                 <td>10 clientes que menos consumiram produtos ou serviços.</td>
                 <td>
                   <div>
-                    <Button variant="light" href="##">Visualizar</Button>{" "}
+                    <Button variant="light" href="/lista5">Visualizar</Button>{" "}
                   </div>
                 </td>
               </tr>
@@ -64,7 +64,7 @@ export default function Listas(props){
                 <td>5 clientes que mais consumiram em valor.</td>
                 <td>
                   <div>
-                    <Button variant="light" href="##">Visualizar</Button>{" "}
+                    <Button variant="light" href="/lista6">Visualizar</Button>{" "}
                   </div>
                 </td>
               </tr>

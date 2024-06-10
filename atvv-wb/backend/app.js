@@ -30,17 +30,48 @@ module.exports = connection;
 /* cliente */
 app.post('/cadastrar_cliente', async (req, res) => {
     const newData = req.body;
+/*     const { telefones } = req.body; */
     try {
         const now = moment().format('YYYY-MM-DD');
         newData.createdAt = now;
         newData.updatedAt = now;
+
+/*         const clienteData = {
+            telefones,
+        }; */
         
-        await connection.query('INSERT INTO cliente SET ?', newData);
+        await connection.query('INSERT INTO cliente SET ?', newData/* , clienteData */);
+
+/*         // Divida a string de telefones em um array
+        const telefonesArray = telefones.split(',');
+
+        // Itere sobre o array de telefones e insira-os na tabela telefone associando-os ao cliente
+        telefonesArray.forEach(async telefone => {
+            const telefoneData = {
+                cliente_id: // id do cliente recém-cadastrado,
+                telefone,
+                createdAt: now,
+                updatedAt: now
+            };
+            await connection.query('INSERT INTO telefone SET ?', telefoneData);
+        }); */
         
         res.status(200).send('Cliente cadastrado');
     } catch (error) {
         console.error('Erro ao adicionar o cliente:', error);
         res.status(500).send('Erro ao cadastrar cliente');
+    }
+});
+
+app.put('/editar_cliente', async (req, res) => {
+    const updatedData = req.body;
+    try {
+        await connection.query('UPDATE cliente SET * = ? WHERE id = ?', [updatedData, updatedData.id]);
+
+        res.status(200).send('Dados atualizados com sucesso');
+    } catch (error) {
+        console.error('Erro ao buscar cliente:', error);
+        res.status(500).send('Erro ao buscar cliente');
     }
 });
 
@@ -51,6 +82,21 @@ app.get('/clientes', async (req, res) => {
     } catch (error) {
         console.error('Erro ao buscar cliente:', error);
         res.status(500).send('Erro ao buscar cliente');
+    }
+});
+
+app.get('/clientes/:cpf', async (req, res) => {
+    const cpf = req.params.cpf; // Corrija o nome da variável para corresponder ao nome do parâmetro
+    try {
+        const [rows, fields] = await connection.query('SELECT * from cliente WHERE cpf = ?', [cpf]);
+        if (rows.length > 0) {
+            res.json(rows[0]);
+        } else {
+            res.status(404).send('CPF não encontrado');
+        }
+    } catch (error) {
+        console.error('Erro ao buscar cpf:', error);
+        res.status(500).send('Erro ao buscar cpf');
     }
 });
 
@@ -67,6 +113,33 @@ app.delete('/clientes/:id', async (req, res) => {
     }
 });
 
+
+/* telefone */
+app.post('/cadastrar_telefone', async (req, res) => {
+    const newDataTelefone = req.body;
+    try {
+        const now = moment().format('YYYY-MM-DD');
+        newDataTelefone.createdAt = now;
+        newDataTelefone.updatedAt = now;
+        
+        await connection.query('INSERT INTO telefones SET ?', newDataTelefone);
+        
+        res.status(200).send('Telefones cadastrado');
+    } catch (error) {
+        console.error('Erro ao adicionar o Telefones:', error);
+        res.status(500).send('Erro ao cadastrar Telefones');
+    }
+});
+
+app.get('/telefones', async (req, res) => {
+    try {
+        const [rows, fields] = await connection.query('SELECT id, id_cliente, telefone from telefones');
+        res.json(rows);
+    } catch (error) {
+        console.error('Erro ao buscar telefone:', error);
+        res.status(500).send('Erro ao buscar telefones');
+    }
+});
 
 /* produto */
 app.post('/cadastrar_produto', async (req, res) => {
@@ -85,6 +158,18 @@ app.post('/cadastrar_produto', async (req, res) => {
     }
 });
 
+app.put('/editar_produto', async (req, res) => {
+    const newData = req.body;
+    try {
+        await connection.query('UPDATE produtos SET nome = ?, preco = ? WHERE id = ?', [newData.nome, newData.preco, newData.id]);
+
+        res.status(200).send('Dados atualizados com sucesso');
+    } catch (error) {
+        console.error('Erro ao atualizar produto:', error);
+        res.status(500).send('Erro ao atualizar produto');
+    }
+});  
+
 app.get('/produtos', async (req, res) => {
     try {
         const [rows, fields] = await connection.query('SELECT id, nome, preco from produtos');
@@ -92,6 +177,21 @@ app.get('/produtos', async (req, res) => {
     } catch (error) {
         console.error('Erro ao buscar produtos:', error);
         res.status(500).send('Erro ao buscar produtos');
+    }
+});
+
+app.get('/produtos/:id', async (req, res) => {
+    const id = req.params.id;
+    try {
+        const [rows, fields] = await connection.query('SELECT id, nome, preco from produtos WHERE id = ?', [id]);
+        if (rows.length > 0) {
+            res.json(rows[0]); 
+        } else {
+            res.status(404).send('Produto não encontrado');
+        }
+    } catch (error) {
+        console.error('Erro ao buscar produto:', error);
+        res.status(500).send('Erro ao buscar produto');
     }
 });
 
@@ -125,6 +225,19 @@ app.post('/cadastrar_servico', async (req, res) => {
         res.status(500).send('Erro ao cadastrar serviço');
     }
 });
+
+app.put('/editar_servicos', async (req, res) => {
+    const updatedData = req.body;
+    try {
+    await connection.query('UPDATE servicos SET nome = ?, preco = ? WHERE id = ?', [updatedData.nome, updatedData.preco, updatedData.id]);
+
+    res.status(200).send('Dados atualizados com sucesso');
+    } catch (error) {
+        console.error('Erro ao buscar servicos:', error);
+        res.status(500).send('Erro ao buscar servicos');
+    }
+});
+
 app.get('/servicos', async (req, res) => {
     try {
         const [rows, fields] = await connection.query('SELECT id, nome, preco from servicos');
@@ -132,6 +245,21 @@ app.get('/servicos', async (req, res) => {
     } catch (error) {
         console.error('Erro ao buscar servicos:', error);
         res.status(500).send('Erro ao buscar servicos');
+    }
+});
+
+app.get('/servicos/:id', async (req, res) => {
+    const id = req.params.id;
+    try {
+        const [rows, fields] = await connection.query('SELECT id, nome, preco from servicos WHERE id = ?', [id]);
+        if (rows.length > 0) {
+            res.json(rows[0]); 
+        } else {
+            res.status(404).send('Servico não encontrado');
+        }
+    } catch (error) {
+        console.error('Erro ao buscar servico:', error);
+        res.status(500).send('Erro ao buscar servico');
     }
 });
 
@@ -145,6 +273,73 @@ app.delete('/servicos/:id', async (req, res) => {
     } catch (error) {
       console.error('Erro ao deletar servicos:', error);
       res.status(500).send('Erro ao deletar servicos');
+    }
+});
+
+app.put('/editar_servico', async (req, res) => {
+    const newData = req.body;
+    try {
+        await connection.query('UPDATE servicos SET nome = ?, preco = ? WHERE id = ?', [newData.nome, newData.preco, newData.id]);
+
+        res.status(200).send('Dados atualizados com sucesso');
+    } catch (error) {
+        console.error('Erro ao atualizar servico:', error);
+        res.status(500).send('Erro ao atualizar servico');
+    }
+}); 
+
+
+/* consumo servico */
+app.post('/cadastrar_consumo_servico', async (req, res) => {
+    const newData = req.body;
+    try {
+        const now = moment().format('YYYY-MM-DD');
+        newData.createdAt = now;
+        newData.updatedAt = now;
+        
+        await connection.query('INSERT INTO consumoservico SET ?', newData);
+        
+        res.status(200).send('Consumo do Serviço cadastrado');
+    } catch (error) {
+        console.error('Erro ao adicionar o Consumo do Serviço:', error);
+        res.status(500).send('Erro ao cadastrar Consumo do Serviço');
+    }
+});
+
+app.get('/consumo_servico', async (req, res) => {
+    try {
+        const [rows, fields] = await connection.query('SELECT * from consumoservico');
+        res.json(rows);
+    } catch (error) {
+        console.error('Erro ao buscar consumoservico:', error);
+        res.status(500).send('Erro ao buscar consumoservico');
+    }
+});
+
+/* consumo produto */
+app.post('/cadastrar_consumo_produto', async (req, res) => {
+    const newData = req.body;
+    try {
+        const now = moment().format('YYYY-MM-DD');
+        newData.createdAt = now;
+        newData.updatedAt = now;
+        
+        await connection.query('INSERT INTO consumoproduto SET ?', newData);
+        
+        res.status(200).send('Consumo do Produto cadastrado');
+    } catch (error) {
+        console.error('Erro ao adicionar o Consumo do Produto:', error);
+        res.status(500).send('Erro ao cadastrar Consumo do Produto');
+    }
+});
+
+app.get('/consumo_produto', async (req, res) => {
+    try {
+        const [rows, fields] = await connection.query('SELECT * from consumoproduto');
+        res.json(rows);
+    } catch (error) {
+        console.error('Erro ao buscar consumoproduto:', error);
+        res.status(500).send('Erro ao buscar consumoproduto');
     }
 });
 
