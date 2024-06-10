@@ -28,16 +28,6 @@ module.exports = {
       dataEmissaoCpf: {
         type: Sequelize.STRING
       },
-      rg: {
-        type: Sequelize.STRING,
-        unique: true
-      },
-      uf_rg: {
-        type: Sequelize.STRING
-      },
-      dataEmissaoRG: {
-        type: Sequelize.STRING
-      },
       estado: {
         type: Sequelize.STRING
       },

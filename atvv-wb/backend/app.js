@@ -30,31 +30,11 @@ module.exports = connection;
 /* cliente */
 app.post('/cadastrar_cliente', async (req, res) => {
     const newData = req.body;
-/*     const { telefones } = req.body; */
     try {
         const now = moment().format('YYYY-MM-DD');
         newData.createdAt = now;
         newData.updatedAt = now;
-
-/*         const clienteData = {
-            telefones,
-        }; */
-        
         await connection.query('INSERT INTO cliente SET ?', newData/* , clienteData */);
-
-/*         // Divida a string de telefones em um array
-        const telefonesArray = telefones.split(',');
-
-        // Itere sobre o array de telefones e insira-os na tabela telefone associando-os ao cliente
-        telefonesArray.forEach(async telefone => {
-            const telefoneData = {
-                cliente_id: // id do cliente recém-cadastrado,
-                telefone,
-                createdAt: now,
-                updatedAt: now
-            };
-            await connection.query('INSERT INTO telefone SET ?', telefoneData);
-        }); */
         
         res.status(200).send('Cliente cadastrado');
     } catch (error) {
@@ -140,6 +120,35 @@ app.get('/telefones', async (req, res) => {
         res.status(500).send('Erro ao buscar telefones');
     }
 });
+
+
+/* Dados do RG */
+app.post('/cadastrar_dadosRG', async (req, res) => {
+    const newDataDadosRG = req.body;
+    try {
+        const now = moment().format('YYYY-MM-DD');
+        newDataDadosRG.createdAt = now;
+        newDataDadosRG.updatedAt = now;
+        
+        await connection.query('INSERT INTO rgs SET ?', newDataDadosRG);
+        
+        res.status(200).send('RGs cadastrado');
+    } catch (error) {
+        console.error('Erro ao adicionar o RGs:', error);
+        res.status(500).send('Erro ao cadastrar RGs');
+    }
+});
+
+app.get('/rgs', async (req, res) => {
+    try {
+        const [rows, fields] = await connection.query('SELECT id, id_cliente, rg, uf_rg, dataEmissaoRG from rgs');
+        res.json(rows);
+    } catch (error) {
+        console.error('Erro ao buscar dados do rg:', error);
+        res.status(500).send('Erro ao buscar dados do rg');
+    }
+});
+
 
 /* produto */
 app.post('/cadastrar_produto', async (req, res) => {

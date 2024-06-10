@@ -10,6 +10,7 @@ import Modal from '../modals/modal';
 export default function ListaClientes(props) {
     const [chartData, setChartData] = useState([]);
     const [chartDataTelefone, setChartDataTelefone] = useState([]);
+    const [chartDataDadosRG, setChartDataDadosRG] = useState([]);
     const [openModal, setOpenModal] = useState(false);
     const [clienteSelecionado, setClienteSelecionado] = useState(null);
 
@@ -27,6 +28,12 @@ export default function ListaClientes(props) {
             console.log(dataTelefone);
 
             setChartDataTelefone(dataTelefone);
+
+            const responseDadosRG = await axios.get("http://localhost:8080/rgs");
+            const dataDadosRG = responseDadosRG.data;
+            console.log(dataDadosRG);
+
+            setChartDataDadosRG(dataDadosRG);
 
             setChartData(dataCliente);
             console.log(dataCliente);
@@ -146,11 +153,18 @@ export default function ListaClientes(props) {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr key={clienteSelecionado.id}>
-                                            <td>{clienteSelecionado.rg}</td>
-                                            <td>{clienteSelecionado.uf_rg}</td>
-                                            <td>{clienteSelecionado.dataEmissaoRG}</td>
-                                        </tr>
+                                        {chartDataDadosRG.map((dados, index) => {
+                                            console.log(clienteSelecionado.id, dados.id_cliente);
+                                            return (
+                                                clienteSelecionado.id === dados.id_cliente && (
+                                                    <tr key={index}>
+                                                        <td>{dados.rg}</td>
+                                                        <td>{dados.uf_rg}</td>
+                                                        <td>{dados.dataEmissaoRG}</td>
+                                                    </tr>
+                                                )
+                                            );
+                                        })}
                                     </tbody>
                                 </Table>
                                 <Table className="table table-bordered">

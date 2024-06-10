@@ -10,14 +10,12 @@ import trash from '../images/trash.svg'
 
 export default function CadastroClientes(props){
 
+    const [dadosRG, setDadosRG] = useState([{ rg: '', uf_rg: '', dataEmissaoRG: '' }]);
     const [nome, setNome] = useState('');
     const [nomeSocial, setNomeSocial] = useState('');
     const [genero, setGenero] = useState('');
     const [cpf, setCpf] = useState('');
     const [dataEmissaoCpf, setDataEmissaoCpf] = useState('');
-    const [rg, setRg] = useState([]);
-    const [dataEmissaoRG, setDataEmissaoRG] = useState([]);
-    const [UF_RG, setUF_RG] = useState([]);
     const [telefones, setTelefones] = useState([]);   
     const [email, setEmail] = useState('');   
     const [estado, setEstado] = useState('');   
@@ -62,12 +60,18 @@ export default function CadastroClientes(props){
                 await axios.post('http://localhost:8080/cadastrar_telefone', newDataTelefone);
             }
 
-            for (let telefone of telefones){
-                const newDataTelefone = {
+            for (let item of dadosRG) {
+                const newDataDadosRG = {
                     id_cliente: id_cliente,
-                    telefone: telefone,
+                    rg: item.rg,
+                    uf_rg: item.uf_rg,
+                    dataEmissaoRG: item.dataEmissaoRG,
+                };
+                try {
+                    await axios.post('http://localhost:8080/cadastrar_dadosRG', newDataDadosRG);
+                } catch (error) {
+                    console.error('Erro ao cadastrar RG:', error);
                 }
-                await axios.post('http://localhost:8080/cadastrar_telefone', newDataTelefone);
             }
             //window.location.reload();
             setNome('')
@@ -75,9 +79,7 @@ export default function CadastroClientes(props){
             setGenero('')
             setCpf('')
             setDataEmissaoCpf('')
-            setRg([])
-            setDataEmissaoRG([])
-            setUF_RG([])
+            setDadosRG([])
             setTelefones([])
             setEmail('')
             setEstado('')
@@ -108,25 +110,21 @@ export default function CadastroClientes(props){
 
     const adicionarDadosRgs = (e) => {
         e.preventDefault();
-        setRg([...rg, ""]);
-        setUF_RG([...UF_RG, ""]);
-        setDataEmissaoRG([...dataEmissaoRG, ""]);
-    };
+        setDadosRG([...dadosRG, { rg: '', uf_rg: '', dataEmissaoRG: '' }]);
+    };    
 
-     const handleChangeDadosRgs = (e, index) => {
-        rg[index] = e.target.value;
-        setRg([...rg]);
-        UF_RG[index] = e.target.value;
-        setUF_RG([...UF_RG]);
-        dataEmissaoRG[index] = e.target.value;
-        setDataEmissaoRG([...dataEmissaoRG]);
-    };
+    const handleChangeDadosRgs = (e, index) => {
+        const { name, value } = e.target;
+        const updatedDadosRG = [...dadosRG];
+        updatedDadosRG[index][name] = value;
+        setDadosRG(updatedDadosRG);
+    };    
     
-    const removerDadosRgs = (position) => {
-        setRg([...rg.filter((_, index)=> index !== position)]);
-        setUF_RG([...UF_RG.filter((_, index)=> index !== position)]);
-        setDataEmissaoRG([...dataEmissaoRG.filter((_, index)=> index !== position)]);
-    }; 
+    const removerDadosRgs = (index) => {
+        index = 1;
+        const updatedDadosRG = dadosRG.filter((_, i) => i !== index);
+        setDadosRG(updatedDadosRG);
+    };    
 
     return (
         <section>
@@ -213,38 +211,44 @@ export default function CadastroClientes(props){
                             <div className="field">
                                 <button type="button" class="btn btn-light" onClick={adicionarDadosRgs}> Adicionar Dados do(s) RG(s)</button> 
                             </div>
-                            {
-                                rg.map((rg, index) => (
-                                    <div className="campo-rg">
+                                {dadosRG.map((item, index) => (
+                                    <div className="campo-rg" key={index}>
                                         <div className="field">
-                                        <label htmlFor="rg">RG:</label>
-                                        <InputMask
-                                            mask="99.999.999-9"
-                                            placeholder="00.000.000-0"
-                                            type="text"
-                                            value={rg}
-                                            onChange={(e) => handleChangeDadosRgs(e, index)}
-                                        />
+                                            <label htmlFor="rg">RG:</label>
+                                            <InputMask
+                                                mask="99.999.999-9"
+                                                placeholder="00.000.000-0"
+                                                type="text"
+                                                name="rg"
+                                                value={item.rg}
+                                                onChange={(e) => handleChangeDadosRgs(e, index)}
+                                            />
                                         </div>
                                         <div className="field">
                                             <label htmlFor="dataEmissaoRG">Data da Emissao-RG:</label>
                                             <InputMask
                                                 mask="99/99/9999"
                                                 placeholder="__/__/____"
-                                                value={dataEmissaoRG}
+                                                name="dataEmissaoRG"
+                                                value={item.dataEmissaoRG}
                                                 onChange={(e) => handleChangeDadosRgs(e, index)}
                                             />
                                         </div>
                                         <div className="field">
-                                            <label htmlFor="UF">UF do RG:</label>
-                                            <input type="text" placeholder="Informe a UF do RG" value={UF_RG} onChange={(e) => handleChangeDadosRgs(e, index)}/>
+                                            <label htmlFor="uf_rg">UF do RG:</label>
+                                            <input
+                                                type="text"
+                                                placeholder="Informe a UF do RG"
+                                                name="uf_rg"
+                                                value={item.uf_rg}
+                                                onChange={(e) => handleChangeDadosRgs(e, index)}
+                                            />
                                         </div>
-                                        <button type="button" class="btn btn-light" onClick={() => {removerTelefone(index)}}>
-                                            <img src={trash} alt="Lixo"></img>
+                                        <button type="button" className="btn btn-light" onClick={() => removerDadosRgs(index)}>
+                                            <img src={trash} alt="Lixo" />
                                         </button>
                                     </div>
-                                ))
-                            }
+                                ))}
                         </form>
 
                         {/* campo 3 */}
