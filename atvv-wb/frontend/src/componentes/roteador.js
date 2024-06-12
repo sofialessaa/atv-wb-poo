@@ -32,7 +32,7 @@ export default function AppRoutes(props){
       <Routes>
         {/* <Route path='/' element={< />} /> */}
         <Route path='/cadastrar_cliente' element={<CadastroClientes />} />
-        <Route path='/editar_cliente' element={<EditarCliente />} />
+        <Route path='/editar_cliente/:id' element={<EditarCliente />} />
         <Route path='/' element={<ListaClientes />} />
         <Route path='/cadastrar_produto' element={<CadastroProdutos />} />
         <Route path='/editar_produto/:id' element={<EditarProduto />} />

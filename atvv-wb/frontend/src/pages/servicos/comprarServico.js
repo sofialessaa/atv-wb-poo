@@ -32,7 +32,7 @@ export default function ComprarServicos(props) {
 
     useEffect(() => {
         if (cpfDigitado) {
-            fetch(`http://localhost:8080/clientes/${cpfDigitado}`, {
+            fetch(`http://localhost:8080/clientes/cpf/${cpfDigitado}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -115,6 +115,10 @@ export default function ComprarServicos(props) {
                                 ))}
                             </select>
                         </div>
+                        <div className="field">
+                            <label htmlFor="Valor">Valor da compra:</label>
+                            <input type="text" value={preco} readOnly="true"/>
+                        </div> 
                         <Button className="submit" type="submit" onClick={handleSubmit}>Comprar</Button>{" "}
                     </form>
                 </div>

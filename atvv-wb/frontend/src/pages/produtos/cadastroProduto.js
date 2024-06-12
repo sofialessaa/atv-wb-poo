@@ -10,9 +10,7 @@ export default function CadastroProdutos(props){
 
     const cadastrarProduto = async () => {
         try {
-            // Remove qualquer caractere não numérico do valor
             const cleanedValue = preco.replace(/[^\d,]/g, '');
-            // Transforma o valor em um número
             const precoBanco = parseFloat(cleanedValue.replace(',', '.'));
 
             const newData = {

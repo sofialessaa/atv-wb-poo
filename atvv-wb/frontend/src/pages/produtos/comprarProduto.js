@@ -36,7 +36,7 @@ export default function ComprarProdutos(props){
 
     useEffect(() => {
         if (cpfDigitado) {
-            fetch(`http://localhost:8080/clientes/${cpfDigitado}`, {
+            fetch(`http://localhost:8080/clientes/cpf/${cpfDigitado}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

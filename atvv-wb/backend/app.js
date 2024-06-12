@@ -43,18 +43,6 @@ app.post('/cadastrar_cliente', async (req, res) => {
     }
 });
 
-app.put('/editar_cliente', async (req, res) => {
-    const updatedData = req.body;
-    try {
-        await connection.query('UPDATE cliente SET * = ? WHERE id = ?', [updatedData, updatedData.id]);
-
-        res.status(200).send('Dados atualizados com sucesso');
-    } catch (error) {
-        console.error('Erro ao buscar cliente:', error);
-        res.status(500).send('Erro ao buscar cliente');
-    }
-});
-
 app.get('/clientes', async (req, res) => {
     try {
         const [rows, fields] = await connection.query('SELECT * from cliente');
@@ -65,18 +53,33 @@ app.get('/clientes', async (req, res) => {
     }
 });
 
-app.get('/clientes/:cpf', async (req, res) => {
-    const cpf = req.params.cpf; // Corrija o nome da variável para corresponder ao nome do parâmetro
+app.get('/clientes/:id', async (req, res) => {
+    const id = req.params.id;
     try {
-        const [rows, fields] = await connection.query('SELECT * from cliente WHERE cpf = ?', [cpf]);
+        const [rows, fields] = await connection.query('SELECT * from cliente WHERE id = ?', [id]);
+        if (rows.length > 0) {
+            res.json(rows[0]); 
+        } else {
+            res.status(404).send('Cliente não encontrado');
+        }
+    } catch (error) {
+        console.error('Erro ao buscar cliente:', error);
+        res.status(500).send('Erro ao buscar cliente');
+    }
+});
+
+app.get('/clientes/cpf/:cpf', async (req, res) => {
+    const cpf = req.params.cpf;
+    try {
+        const [rows, fields] = await connection.query('SELECT * FROM cliente WHERE cpf = ?', [cpf]);
         if (rows.length > 0) {
             res.json(rows[0]);
         } else {
             res.status(404).send('CPF não encontrado');
         }
     } catch (error) {
-        console.error('Erro ao buscar cpf:', error);
-        res.status(500).send('Erro ao buscar cpf');
+        console.error('Erro ao buscar CPF:', error);
+        res.status(500).send('Erro ao buscar CPF');
     }
 });
 
@@ -90,6 +93,18 @@ app.delete('/clientes/:id', async (req, res) => {
     } catch (error) {
       console.error('Erro ao deletar cliente:', error);
       res.status(500).send('Erro ao deletar cliente');
+    }
+});
+
+app.put('/editar_cliente', async (req, res) => {
+    const newData = req.body;
+    try {
+        await connection.query('UPDATE cliente SET nome = ?, nomeSocial = ?, email = ?, genero = ?, cpf = ?, dataEmissaoCpf = ?, estado = ?, cidade = ?, bairro = ?, rua = ?, numero = ?, cep = ?, informacoes_adicionais = ? WHERE id = ?', [newData.nome, newData.nomeSocial, newData.email, newData.genero, newData.cpf, newData.dataEmissaoCpf, newData.estado, newData.cidade, newData.bairro, newData.rua, newData.numero, newData.cep, newData.informacoes_adicionais, newData.id]);
+
+        res.status(200).send('Dados atualizados com sucesso');
+    } catch (error) {
+        console.error('Erro ao atualizar clientes:', error);
+        res.status(500).send('Erro ao atualizar clientes');
     }
 });
 
@@ -121,6 +136,33 @@ app.get('/telefones', async (req, res) => {
     }
 });
 
+app.get('/telefones/:id', async (req, res) => {
+    const id = req.params.id;
+    try {
+        const [rows, fields] = await connection.query('SELECT * from telefones WHERE id_cliente = ?', [id]);
+        if (rows.length > 0) {
+            res.json(rows); 
+        } else {
+            res.status(404).send('Telefone não encontrado');
+        }
+    } catch (error) {
+        console.error('Erro ao buscar telefone:', error);
+        res.status(500).send('Erro ao buscar telefone');
+    }
+});
+
+app.put('/editar_telefones', async (req, res) => {
+    const newDataTelefone = req.body;
+    try {
+        await connection.query('UPDATE telefones SET telefone = ? WHERE id = ?', [newDataTelefone.telefone, newDataTelefone.id]);
+
+        res.status(200).send('Dados atualizados com sucesso');
+    } catch (error) {
+        console.error('Erro ao atualizar telefones:', error);
+        res.status(500).send('Erro ao atualizar telefones');
+    }
+});
+
 
 /* Dados do RG */
 app.post('/cadastrar_dadosRG', async (req, res) => {
@@ -146,6 +188,33 @@ app.get('/rgs', async (req, res) => {
     } catch (error) {
         console.error('Erro ao buscar dados do rg:', error);
         res.status(500).send('Erro ao buscar dados do rg');
+    }
+});
+
+app.get('/rgs/:id', async (req, res) => {
+    const id = req.params.id;
+    try {
+        const [rows, fields] = await connection.query('SELECT id, rg, uf_rg, dataEmissaoRG from rgs WHERE id_cliente = ?', [id]);
+        if (rows.length > 0) {
+            res.json(rows); 
+        } else {
+            res.status(404).send('RG não encontrado');
+        }
+    } catch (error) {
+        console.error('Erro ao buscar rg:', error);
+        res.status(500).send('Erro ao buscar rg');
+    }
+});
+
+app.put('/editar_rgs', async (req, res) => {
+    const newDataRg = req.body;
+    try {
+        await connection.query('UPDATE rgs SET rg = ?, uf_rg = ?, dataEmissaoRG = ? WHERE id = ?', [newDataRg.rg, newDataRg.uf_rg, newDataRg.dataEmissaoRG, newDataRg.id]);
+
+        res.status(200).send('Dados atualizados com sucesso');
+    } catch (error) {
+        console.error('Erro ao atualizar rgs:', error);
+        res.status(500).send('Erro ao atualizar rgs');
     }
 });
 
@@ -349,6 +418,125 @@ app.get('/consumo_produto', async (req, res) => {
     } catch (error) {
         console.error('Erro ao buscar consumoproduto:', error);
         res.status(500).send('Erro ao buscar consumoproduto');
+    }
+});
+
+
+/* listagem */
+app.get('/lista1', async (req, res) => {
+   /* Lista dos 10 clientes que mais consumiram em quantidade.*/
+    try {
+        const [rows, fields] = await connection.query(
+            `SELECT nome, SUM(quantidade) as totalQuantidade
+            FROM (
+                SELECT nome, quantidade
+                FROM consumoproduto
+                UNION ALL
+                SELECT nome, 1 as quantidade
+                FROM consumoservico
+            ) AS combined
+            GROUP BY nome
+            ORDER BY totalQuantidade DESC
+            LIMIT 10;`
+        );
+        console.log(rows);
+
+        res.json(rows);
+    } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+        res.status(500).send('Erro ao buscar dados');
+    }
+});
+
+app.get('/lista4', async (req, res) => {
+    /* Produtos ou serviços mais consumidos por gênero. */
+    try {
+        const [rows] = await connection.query(
+            `SELECT nome, genero, SUM(quantidade) as totalQuantidade
+            FROM (
+                SELECT cp.produto AS nome, c.genero, cp.quantidade
+                FROM consumoproduto cp
+                JOIN cliente c ON cp.cpf = c.cpf
+                UNION ALL
+                SELECT cs.servico AS nome, c.genero, 1 as quantidade
+                FROM consumoservico cs
+                JOIN cliente c ON cs.cpf = c.cpf
+            ) AS combined
+            GROUP BY nome, genero
+            ORDER BY genero, totalQuantidade DESC;`
+        );
+
+        const result = {
+            Feminino: [],
+            Masculino: [],
+            Outro: []
+        };
+
+        rows.forEach(row => {
+            if (row.genero === 'Feminino') {
+                result.Feminino.push(row);
+            } else if (row.genero === 'Masculino') {
+                result.Masculino.push(row);
+            } else if (row.genero === 'Outro') {
+                result.Outro.push(row);
+            }
+        });
+
+        console.log(result);
+        res.json(result);
+    } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+        res.status(500).send('Erro ao buscar dados');
+    }
+});
+
+app.get('/lista5', async (req, res) => {
+    /* 10 clientes que menos consumiram produtos ou serviços. */
+    try {
+        const [rows, fields] = await connection.query(
+            `SELECT nome, SUM(quantidade) as totalQuantidade
+            FROM (
+                SELECT nome, quantidade
+                FROM consumoproduto
+                UNION ALL
+                SELECT nome, 1 as quantidade
+                FROM consumoservico
+            ) AS combined
+            GROUP BY nome
+            ORDER BY totalQuantidade ASC
+            LIMIT 10;`
+        );
+        console.log(rows);
+
+        res.json(rows);
+    } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+        res.status(500).send('Erro ao buscar dados');
+    }
+});
+
+app.get('/lista6', async (req, res) => {
+    /* Lista dos 5 clientes que mais consumiram em valor */
+    try {
+        const [rows, fields] = await connection.query(
+            `SELECT nome, SUM(preco) as totalPreco
+            FROM (
+                SELECT nome, preco
+                FROM consumoproduto
+                UNION ALL
+                SELECT nome, preco
+                FROM consumoservico
+            ) AS combined
+            GROUP BY nome
+            ORDER BY totalPreco DESC
+            LIMIT 5;`
+        );
+        console.log(rows);
+
+        res.json(rows);
+    } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+        res.status(500).send('Erro ao buscar dados');
     }
 });
 

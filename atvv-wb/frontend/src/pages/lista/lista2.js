@@ -1,3 +1,4 @@
+/* Lista de todos os clientes por gênero. */
 import React, { useEffect, useState } from 'react';
 import BarraNavegacao from "../../componentes/barraNavegacao";
 import "../styles.css";

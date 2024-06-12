@@ -308,3 +308,23 @@ main {
   flex-direction: row;
   
 }
+.campo-cadastro-lista1 {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+/*   justify-content: center; */
+  align-items: center !important;
+  border-radius: 20px !important;
+  box-shadow: rgba(0, 0, 0, 0.247) 0px 5px 16px !important;
+  padding: 30px 30px 30px 30px;
+
+}
+.tables-lista1 {
+  width: auto;
+  height: auto;
+  margin: 25px 10px;
+  justify-content: center;
+  align-items: center !important;
+  align-self: center;
+}

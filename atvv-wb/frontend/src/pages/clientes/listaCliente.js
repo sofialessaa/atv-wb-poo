@@ -6,6 +6,7 @@ import excluir from "../images/excluir.svg";
 import editar from "../images/editar.svg";
 import axios from "axios";
 import Modal from '../modals/modal';
+import { Link } from 'react-router-dom';
 
 export default function ListaClientes(props) {
     const [chartData, setChartData] = useState([]);
@@ -109,14 +110,10 @@ export default function ListaClientes(props) {
                                         })}
                                     </td>
                                     <td>
-                                        <a href="##">
-                                            <img src={editar} alt="Editar" /* onClick={() => editarCliente(cliente.id)} *//>
-                                        </a>
+                                        <Link to={`/editar_cliente/${cliente.id}`}><img src={editar} alt="Editar"/></Link>  
                                     </td>
                                     <td>
-                                        <a href="##">
                                             <img src={excluir} alt="Excluir" onClick={() => deletarCliente(cliente.id)}/>
-                                        </a>
                                     </td>
                                 </tr>
                             ))}
