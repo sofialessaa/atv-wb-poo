@@ -1,14 +1,17 @@
-# Inicie o projeto
+# Rodando a atviv-wb
+Execute comandos para rodar o frontend e backend.
+<hr>
 
-Primeiro abra dois terminais no Visual Studio Code.
+## Rodando o Frontend
+##### 1. Abra o terminal powershell
+##### 2. `cd atviv-wb`
+##### 3. `cd frontend`
+##### 4. `npm install`
+##### 5. `npm start`
+<hr>
 
-Inicie o frontend
-##### 1. `cd atviv-wb`
-##### 2. `cd frontend`
-##### 3. `npm install`
-##### 4. `npm start`
-
-Inicie o backend
-##### 1. `cd atviv-wb`
-##### 2. `cd executavel`
-##### 3. `java -jar wbbackend.jar`
+## Rodando o Backend Executável
+##### 1. Abra um novo terminal powershell ou cmd
+##### 2. `cd atviv-wb`
+##### 3. `cd executavel`
+##### 4. `java -jar wbbackend.jar`
