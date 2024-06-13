@@ -16,8 +16,13 @@ export default function ListarProdutos(props){
             const responseConsumoProduto = await axios.get("http://localhost:8080/consumo_produto");
             const dataConsumoProduto = responseConsumoProduto.data;
 
-            setChartData(dataConsumoProduto);
-            console.log(dataConsumoProduto);
+            const processedData = dataConsumoProduto.map(item => ({
+                ...item,
+                preco: parseFloat(item.preco) 
+            }));
+
+            setChartData(processedData);
+            console.log(processedData);
         } catch (error) {
             console.error("Erro ao buscar dados:", error);
         }
@@ -31,7 +36,7 @@ export default function ListarProdutos(props){
             <main>
                 <h1>Lista dos pedidos de produtos por cliente</h1>
                 <div className='tables'>
-                    <Table className= "table">
+                    <Table className="table">
                         <thead className='table-light'>
                             <tr>
                                 <td>ID</td>
@@ -50,7 +55,7 @@ export default function ListarProdutos(props){
                                     <td>{consumoProduto.cpf}</td>
                                     <td>{consumoProduto.produto}</td>
                                     <td>{consumoProduto.quantidade}</td>
-                                    <td>{consumoProduto.preco}</td>
+                                    <td>{consumoProduto.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -60,4 +65,3 @@ export default function ListarProdutos(props){
         </section>
     );
 }
-

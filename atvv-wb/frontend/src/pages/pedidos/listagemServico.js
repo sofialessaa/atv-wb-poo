@@ -16,8 +16,13 @@ export default function ListarServicos(props){
             const responseConsumoServico = await axios.get("http://localhost:8080/consumo_servico");
             const dataConsumoServico = responseConsumoServico.data;
 
-            setChartData(dataConsumoServico);
-            console.log(dataConsumoServico);
+            const processedData = dataConsumoServico.map(item => ({
+                ...item,
+                preco: parseFloat(item.preco) 
+            }));
+
+            setChartData(processedData);
+            console.log(processedData);
         } catch (error) {
             console.error("Erro ao buscar dados:", error);
         }
@@ -48,7 +53,7 @@ export default function ListarServicos(props){
                                     <td>{consumoServico.nome}</td>
                                     <td>{consumoServico.cpf}</td>
                                     <td>{consumoServico.servico}</td>
-                                    <td>{consumoServico.preco}</td>
+                                    <td>{consumoServico.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
                                 </tr>
                             ))}
                         </tbody>

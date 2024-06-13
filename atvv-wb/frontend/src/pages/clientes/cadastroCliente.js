@@ -25,8 +25,32 @@ export default function CadastroClientes(props){
     const [numero, setNumero] = useState('');   
     const [cep, setCep] = useState('');   
     const [informacoes_adicionais, setInformacoes] = useState('');   
+
+    function validarCadastro(){
+        if(nome.trim().length === 0) return false
+        if(nomeSocial.trim().length === 0) return false
+        if(genero.trim().length === 0) return false
+        if(cpf.trim().length === 0) return false
+        if(dataEmissaoCpf.trim().length === 0) return false
+        if(email.trim().length === 0) return false
+        if(estado.trim().length === 0) return false
+        if(cidade.trim().length === 0) return false
+        if(bairro.trim().length === 0) return false
+        if(rua.trim().length === 0) return false
+        if(numero.trim().length === 0) return false
+        if(cep.trim().length === 0) return false
+        if(informacoes_adicionais.trim().length === 0) return false
+        if (telefones.some(telefone => telefone.trim().length === 0)) return false;
+        if (dadosRG.length === 0 || dadosRG.some(dado => dado.rg.trim().length === 0 || dado.uf_rg.trim().length === 0 || dado.dataEmissaoRG.trim().length === 0)) return false;
+        return true;
+    }
     
     const cadastrarCliente = async () => {
+        const isValid = validarCadastro()
+        if(!isValid){
+            alert('Preencha todos os campos obrigatórios')
+            return;
+        }
         try {
             const newData = {
                 nome: nome,

@@ -8,7 +8,18 @@ export default function CadastroProdutos(props){
     const [nome, setNome] = useState('');
     const [preco, setPreco] = useState('');
 
+    function validarCadastro(){
+        if(nome.trim().length === 0) return false
+        if(preco.trim().length === 0) return false
+        return true;
+    }
+
     const cadastrarProduto = async () => {
+        const isValid = validarCadastro()
+        if(!isValid){
+            alert('Preencha todos os campos obrigatórios')
+            return;
+        }
         try {
             const cleanedValue = preco.replace(/[^\d,]/g, '');
             const precoBanco = parseFloat(cleanedValue.replace(',', '.'));

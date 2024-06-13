@@ -1,11 +1,10 @@
-/* Lista dos 5 clientes que mais consumiram em valor */
 import React, { useEffect, useState } from 'react';
 import BarraNavegacao from "../../componentes/barraNavegacao";
 import "../styles.css";
 import { Table } from "react-bootstrap";
 
 export default function Lista6(props) {
-    const [lista6, setLista6] = useState([])
+    const [lista6, setLista6] = useState([]);
 
     useEffect(() => {
         fetch(`http://localhost:8080/lista6`, {
@@ -14,11 +13,15 @@ export default function Lista6(props) {
                 'Content-Type': 'application/json',
             },
         })
-            .then((resp) => resp.json())
-            .then((data) => {
-                setLista6(data)
-            })
-            .catch((err) => console.log)
+        .then((resp) => resp.json())
+        .then((data) => {
+            const processedData = data.map(cliente => ({
+                ...cliente,
+                totalPreco: parseFloat(cliente.totalPreco) 
+            }));
+            setLista6(processedData);
+        })
+        .catch((err) => console.log(err)); 
     }, []);
 
     return (
@@ -43,7 +46,7 @@ export default function Lista6(props) {
                                     <tr key={cliente.cpf}>
                                         <td>#{index + 1}</td>
                                         <td>{cliente.nome}</td>
-                                        <td>{cliente.totalPreco}</td>
+                                        <td>{cliente.totalPreco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
                                     </tr>
                                 ))}
                             </tbody>
