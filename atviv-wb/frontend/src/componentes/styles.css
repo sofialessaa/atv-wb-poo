@@ -1,0 +1,30 @@
+.navbar {
+  background-color: #f5e8f7;
+}
+
+.navbar .navbar-nav .nav-link {
+  color: black; 
+  margin-right: 15px;
+}
+
+.navbar .navbar-brand {
+  color: black; 
+}
+
+.navbar .navbar-toggler {
+  border-color: white; 
+}
+
+.navbar .dropdown-menu {
+  background-color: #f5e8f7;
+}
+
+.navbar .dropdown-item {
+  color: black;
+}
+
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus {
+  background-color: #eed5f1; 
+  color: black;
+}
