@@ -2,5 +2,6 @@
 
 Primeiro abra o terminal no Visual Studio Code e escreva:
 ##### 1. `cd atviv-wb`
-##### 2. `npm install`
-##### 3. `npm start`
+##### 2. `cd frontend`
+##### 3. `npm install`
+##### 4. `npm start`

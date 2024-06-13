@@ -28,9 +28,6 @@ export default function BarraNavegacao(props) {
             {renderDropdownItems("CADRASTO", [
               { href: "/cadastrar", text: "Cliente" },
             ])}
-            {renderDropdownItems("EDITAR", [
-              { href: "/atualizar", text: "Cliente" },
-            ])}
           </Nav>
         </Navbar.Collapse>
       </Container>
