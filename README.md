@@ -4,7 +4,7 @@ Este repositório contém os arquivos e códigos desenvolvidos para a atividade 
 
 ## Descrição do Projeto
 
-O Grupo WB é uma empresa fictícia que opera no setor de serviços de beleza e estética, com unidades distribuídas em várias cidades. A empresa é voltada para atender o público feminino, masculino e outros públicos!
+O Grupo WB é uma empresa fictícia que opera no setor de serviços de beleza e estética, com pequenas unidades distribuídas em várias cidades. A empresa é voltada para atender o público feminino, masculino e outros públicos!
 
 ## Objetivo e pastas das atividades i ao v
 
