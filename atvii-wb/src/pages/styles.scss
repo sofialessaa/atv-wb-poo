@@ -100,13 +100,18 @@ main h1 {
 @media (max-width: 768px) {
   .tables table {
       display: block;
-      overflow-x: auto; /* Permitir rolagem horizontal */
-      white-space: nowrap; /* Impedir quebra de linha */
+      overflow-x: auto; 
+      white-space: nowrap; 
+  }
+  .forms {
+      display: block;
+      overflow-x: auto; 
+      white-space: nowrap; 
   }
 
   .tables th,
   .tables td {
-      padding: 8px 10px; /* Ajustar espaçamento interno para telas menores */
+      padding: 8px 10px; 
   }
 
   .Column {
