@@ -32,7 +32,7 @@ import Servico from "../modelo/servico";
 
 let empresa = new Empresa()
 
-console.log(`Bem-vindo ao cadastro de clientes do Grupo World Beauty`)
+console.log(`Bem-vindo - Grupo World Beauty`)
 
 let cliente1 = new Cliente("Sofia Lessa", "Sofia", new CPF('000.000.000-00', new Date(2024, 1, 27)), Genero.FEMININO, [new RG('00.000.000-0', new Date(2023, 1, 27), 'SP')], new Date().toISOString(), [new Telefone('12', '0000-0000')]);
 let cliente2 = new Cliente('Paula Nobre', 'Paula', new CPF('111.111.111-11', new Date(2022, 8, 22)), Genero.FEMININO, [new RG('11.111.111-1', new Date(2020, 8, 22), 'SP')], new Date().toISOString(), [new Telefone('11', '1111-1111')]);

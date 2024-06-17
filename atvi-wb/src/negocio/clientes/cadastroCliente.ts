@@ -69,14 +69,14 @@ export default class CadastroCliente extends Cadastro {
         /* telefone */
         let telefones: Array<Telefone> = [];
         while (true) {
-            let ddd = this.entrada.receberTexto(`Por favor o DDD: `);
+            let ddd = this.entrada.receberTexto(`Por favor informe o DDD: `);
             let numero = this.entrada.receberTexto(`Por favor informe o número de telefone: `);
             let telefone = new Telefone(ddd, numero);
 
             telefones.push(telefone);
 
-            let continueInput = this.entrada.receberTexto(`Deseja cadastrar outro número de telefone? (s/n): `)
-                if (continueInput.toLowerCase() !== 's') {
+            let adicionarTelefone = this.entrada.receberTexto(`Deseja cadastrar outro número de telefone? (s/n): `);
+                if (adicionarTelefone.toLowerCase() !== 's') {
                     break;
                 }
             }

@@ -26,11 +26,11 @@ export default class UpdateCliente extends Update {
 
         const opcoesUpdate = `
         Escolha uma opção:
-        1 - Alterar nome
-        2 - Alterar nome social
-        3 - Alterar gênero
-        4 - Alterar RG
-        5 - Alterar telefone
+        1 - Editar nome
+        2 - Editar nome social
+        3 - Editar gênero
+        4 - Editar RG(s)
+        5 - Editar telefone(s)
         0 - Sair
         \n`;
 
@@ -53,20 +53,40 @@ export default class UpdateCliente extends Update {
                 console.log("Gênero alterado com sucesso!");
                 break;
             case 4:
-                const valorRg = this.entrada.receberTexto("Por favor informe o número do RG: ");
-                const dataRg = this.entrada.receberTexto("Por favor informe a data de emissão do RG, no padrão dd/mm/yyyy: ");
-                const ufRg = this.entrada.receberTexto("Por favor informe a UF do RG: "); 
-                const [dia, mes, ano] = dataRg.split('/').map(Number);
-                const dataEmissaoRg = new Date(ano, mes - 1, dia); 
-                updateCliente.getRgs[0] = new RG(valorRg, dataEmissaoRg, ufRg); 
-                console.log("RG alterado com sucesso!");
+                const rgs = updateCliente.getRgs;
+                console.log("RGs cadastrados:");
+                rgs.forEach((rg, index) => {
+                    console.log(`${index + 1}: ${rg.getValor}, Emitido em: ${rg.getDataEmissao.toLocaleDateString()}, UF: ${rg.getUF}`);
+                });
+                const escolhaRg = this.entrada.receberNumero("Por favor selecione o RG que deseja editar: ");
+                if (escolhaRg > 0 && escolhaRg <= rgs.length) {
+                    const valorRg = this.entrada.receberTexto("Por favor informe o novo número do RG: ");
+                    const dataRg = this.entrada.receberTexto("Por favor informe a nova data de emissão do RG, no padrão dd/mm/yyyy: ");
+                    const ufRg = this.entrada.receberTexto("Por favor informe a nova UF do RG: ");
+                    const [dia, mes, ano] = dataRg.split('/').map(Number);
+                    const dataEmissaoRg = new Date(ano, mes - 1, dia);
+                    rgs[escolhaRg - 1] = new RG(valorRg, dataEmissaoRg, ufRg);
+                    console.log("RG alterado com sucesso!");
+                } else {
+                    console.log("Escolha inválida.");
+                }
                 break;
             case 5:
-                const ddd = this.entrada.receberTexto("Por favor informe o DDD: ");
-                const numero = this.entrada.receberTexto("Por favor informe o número do telefone: ");
-                updateCliente.getTelefones[0] = new Telefone(ddd, numero);
-                console.log("Telefone alterado com sucesso!");
-                break; 
+                const telefones = updateCliente.getTelefones;
+                console.log("Telefones cadastrados:");
+                telefones.forEach((telefone, index) => {
+                    console.log(`${index + 1}: (${telefone.getDdd}) ${telefone.getNumero}`);
+                });
+                const escolha = this.entrada.receberNumero("Selecione o número que deseja editar: ");
+                if (escolha > 0 && escolha <= telefones.length) {
+                    const ddd = this.entrada.receberTexto("Por favor informe o novo DDD: ");
+                    const numero = this.entrada.receberTexto("Por favor informe o novo número do telefone: ");
+                    telefones[escolha - 1] = new Telefone(ddd, numero);
+                    console.log("Telefone alterado com sucesso!");
+                } else {
+                    console.log("Escolha inválida.");
+                }
+                break;
             case 0:
                 console.log(`\nCliente ${updateCliente.nome} atualizado com sucesso!\n`);
                 break;

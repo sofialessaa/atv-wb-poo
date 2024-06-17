@@ -12,7 +12,7 @@ export default class ListagemProdutos extends Listagem {
         this.produtos.forEach(produto => {
             console.log(`Nome: ` + produto.nomeProduto);
             console.log(`Preço: ` + produto.precoProduto);
-            console.log(`Quantidade de produto: ` + produto.quantidaDeProduto);
+            /* console.log(`Quantidade de produto: ` + produto.quantidaDeProduto); */
             console.log(`--------------------------------------`);
         });
         console.log(`\n`);
