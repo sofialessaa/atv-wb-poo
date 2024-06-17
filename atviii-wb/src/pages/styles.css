@@ -116,7 +116,8 @@ main h1 {
   }
 
   .button-editar {
-    display: none;
+    display: block;
+    overflow-x: auto;
     flex-direction: column;
     gap: 10px; 
   }
