@@ -104,7 +104,7 @@ export default function EditarCliente(props){
                         {cliente.telefones.map((telefone, i) => (
                             <div className='campo-telefone' key={i}>
                                 <div className="field">
-                                <label htmlFor="telefone">Telefone:</label>
+                                <label htmlFor="telefone">DDD:</label>
                                 <InputMask
                                     mask="99"
                                     placeholder="00"
