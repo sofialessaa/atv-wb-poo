@@ -31,15 +31,28 @@ export default function EditarProduto(props){
     const editarProduto = async () => {
         console.log(nome, preco)
         try {
+            const cleanedValue = preco.replace(/[^\d,]/g, '').replace(',', '.');
+            const precoBanco = parseFloat(cleanedValue);
             const newData = {
                 id: id,
                 nome: nome,
-                preco: preco,
+                preco: precoBanco,
             }
             await axios.put('http://localhost:8080/editar_produto', newData);
         } catch (error) {
             console.error("Erro ao editar produto:", error);
         }
+    };
+
+    const formatacaoPreco = (event) => {
+        const rawValue = event.target.value;
+        const cleanedValue = rawValue.replace(/\D/g, '');
+        const numberValue = parseFloat(cleanedValue) / 100;
+        const formattedValue = numberValue.toLocaleString('pt-BR', {
+          style: 'currency',
+          currency: 'BRL'
+        });
+        setPreco(formattedValue);
     };
 
     return (
@@ -57,7 +70,7 @@ export default function EditarProduto(props){
                         </div>
                         <div className="field">
                             <label htmlFor="Preco">Preço:</label>
-                            <input type="text" value={preco} placeholder={produto.preco} onChange={event => setPreco(event.target.value)} />
+                            <input type="text" value={preco} placeholder={produto.preco} onChange={formatacaoPreco}/>
                         </div>
                         <div className='button-editar'>
                             <Button className="submit-editar" type='button' onClick={editarProduto} href='/produtos'>Editar</Button>{' '}
