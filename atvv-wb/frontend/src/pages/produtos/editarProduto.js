@@ -30,17 +30,17 @@ export default function EditarProduto(props){
 
     const editarProduto = async () => {
         console.log(nome, preco)
-        try{
-            const cleanedValue = preco.replace(/[^\d,]/g, '');
-            const precoBanco = parseFloat(cleanedValue.replace(',', '.'));
+        try {
+            const cleanedValue = preco.replace(/[^\d,]/g, '').replace(',', '.');
+            const precoBanco = parseFloat(cleanedValue);
 
             const newData = {
                 id: id,
                 nome: nome,
                 preco: precoBanco,
             }
-            await axios.put('http://localhost:8080/editar_produto', newData)
-        }catch (error) {
+            await axios.put('http://localhost:8080/editar_produto', newData);
+        } catch (error) {
             console.error("Erro ao editar produto:", error);
         }
     };
@@ -48,18 +48,17 @@ export default function EditarProduto(props){
     const formatacaoPreco = (event) => {
         const rawValue = event.target.value;
         const cleanedValue = rawValue.replace(/\D/g, '');
-        const numberValue = parseFloat(cleanedValue) / 100;
-        const formattedValue = numberValue.toLocaleString('pt-BR', {
-          style: 'currency',
-          currency: 'BRL'
-        });
+        let numberValue = (cleanedValue / 100).toFixed(2).replace('.', ',');
+        
+        let formattedValue = numberValue.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        formattedValue = 'R$ ' + formattedValue;
         setPreco(formattedValue);
     };
 
     return (
         <section>
             <header>
-                <BarraNavegacao/>
+                <BarraNavegacao />
             </header>
             <main>
                 <h1>Editar Produto</h1>
@@ -67,14 +66,14 @@ export default function EditarProduto(props){
                     <form>
                         <div className="field">
                             <label htmlFor="Produto">Produto:</label>
-                            <input type="text" value={nome} placeholder={produto.nome} onChange={event => setNome(event.target.value)}/>
+                            <input type="text" value={nome} placeholder={produto.nome} onChange={event => setNome(event.target.value)} />
                         </div>
                         <div className="field">
                             <label htmlFor="Preco">Preço:</label>
-                            <input type="text" value={preco} placeholder={produto.preco} onChange={formatacaoPreco}/>
+                            <input type="text" value={preco} placeholder={produto.preco} onChange={formatacaoPreco} />
                         </div>
                         <div className='button-editar'>
-                            <Button className="submit-editar" type='button' onClick={editarProduto} href='/produtos' >Editar</Button>{' '}
+                            <Button className="submit-editar" type='button' onClick={editarProduto} href='/produtos'>Editar</Button>{' '}
                             <Button className="submit-editar" href='/produtos'>Voltar</Button>
                         </div>
                     </form>
