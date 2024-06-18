@@ -21,12 +21,9 @@ export default function CadastroProdutos(props){
             return;
         }
         try {
-            const cleanedValue = preco.replace(/[^\d,]/g, '');
-            const precoBanco = parseFloat(cleanedValue.replace(',', '.'));
-
             const newData = {
                 nome: nome,
-                preco: precoBanco,
+                preco: preco,
             }; 
             console.log("Adicionando produto", newData);
             await axios.post('http://localhost:8080/cadastrar_produto', newData);
@@ -37,16 +34,6 @@ export default function CadastroProdutos(props){
         }
     };
 
-    const formatacaoPreco = (event) => {
-        const rawValue = event.target.value;
-        const cleanedValue = rawValue.replace(/\D/g, '');
-        const numberValue = parseFloat(cleanedValue) / 100;
-        const formattedValue = numberValue.toLocaleString('pt-BR', {
-          style: 'currency',
-          currency: 'BRL'
-        });
-        setPreco(formattedValue);
-    };
 
     return (
         <section>
@@ -63,7 +50,7 @@ export default function CadastroProdutos(props){
                         </div>
                         <div className="field">
                             <label htmlFor="Preco">Preço:</label>
-                            <input type="text" value={preco} onChange={formatacaoPreco} placeholder="R$0,00"/>
+                            <input type="text" value={preco} onChange={event => setPreco(event.target.value)} placeholder="R$0,00"/>
                         </div>
                         <Button className="submit" type='button' onClick={cadastrarProduto}>Cadastrar</Button>{' '}
                     </form>
