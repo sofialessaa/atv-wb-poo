@@ -66,7 +66,7 @@ export default function ListaProdutos(props){
                             <tr key={produto.id}>
                             <td>{index + 1}</td>
                             <td>{produto.nome}</td>
-                            <td>{produto.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+                            <td>{produto.preco}</td>
                             <td>
                                 <Link to={`/editar_produto/${produto.id}`}><img src={editar} alt="Editar"/></Link>
                             </td>

@@ -67,7 +67,7 @@ export default function ListaServicos(props){
                             <tr key={servico.id}>
                             <td>{index + 1}</td>
                             <td>{servico.nome}</td>
-                            <td>{servico.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+                            <td>{servico.preco}</td>
                             <td>
                             <Link to={`/editar_servico/${servico.id}`}><img src={editar} alt="Editar"/></Link>
                             </td>
