@@ -60,7 +60,7 @@ let cliente23 = new Cliente('Ricardo Pereira', 'Ricardo', new CPF('454.545.454-5
 let cliente24 = new Cliente('Fernanda Lima', 'Fernanda', new CPF('565.656.565-65', new Date(1995, 9, 4)), Genero.OUTRO, [new RG('56.565.656-5', new Date(2013, 8, 15), 'SC'), new RG('57.575.757-5', new Date(2014, 9, 20), 'RS')], new Date().toISOString(), [new Telefone('48', '5656-5656')]);
 let cliente25 = new Cliente('Júlia Oliveira', 'Júlia', new CPF('676.767.676-76', new Date(1990, 3, 10)), Genero.FEMININO, [new RG('67.676.767-6', new Date(2008, 5, 15), 'RJ'), new RG('68.686.868-6', new Date(2009, 6, 20), 'SP')], new Date().toISOString(), [new Telefone('21', '6767-6767'), new Telefone('11', '7676-7676')]);
 let cliente26 = new Cliente('Paulo Silva', 'Paulo', new CPF('787.878.787-87', new Date(1987, 9, 22)), Genero.MASCULINO, [new RG('78.787.878-7', new Date(2005, 10, 25), 'MG'), new RG('79.797.979-7', new Date(2006, 11, 30), 'BA')], new Date().toISOString(), [new Telefone('31', '7878-7878'), new Telefone('71', '7979-7979')]);
-let cliente27 = new Cliente('Camila Lima', 'Camila', new CPF('898.989.898-98', new Date(1993, 12, 15)), Genero.FEMININO, [new RG('89.898.989-8', new Date(2011, 3, 5), 'RS'), new RG('90.909.090-9', new Date(2012, 4, 10), 'SC')], new Date().toISOString(), [new Telefone('51', '8989-8989'), new Telefone('48', '9090-9090')]);
+let cliente27 = new Cliente('Camila Lopes Lima', 'Camila', new CPF('898.989.898-98', new Date(1993, 12, 15)), Genero.FEMININO, [new RG('89.898.989-8', new Date(2011, 3, 5), 'RS'), new RG('90.909.090-9', new Date(2012, 4, 10), 'SC')], new Date().toISOString(), [new Telefone('51', '8989-8989'), new Telefone('48', '9090-9090')]);
 let cliente28 = new Cliente('Mateus Vieira', 'Mateus', new CPF('012.121.212-12', new Date(1988, 5, 8)), Genero.MASCULINO, [new RG('01.212.121-2', new Date(2006, 7, 20), 'PR'), new RG('02.323.232-2', new Date(2007, 8, 25), 'BA')], new Date().toISOString(), [new Telefone('41', '0121-2121'), new Telefone('71', '2323-2323')]);
 let cliente29 = new Cliente('Larissa Paula', 'Larissa', new CPF('343.434.343-43', new Date(1995, 11, 4)), Genero.FEMININO, [new RG('34.343.434-3', new Date(2013, 9, 15), 'PE'), new RG('35.353.535-3', new Date(2014, 10, 20), 'SC')], new Date().toISOString(), [new Telefone('81', '3434-3434'), new Telefone('48', '3535-3535')]);
 let cliente30 = new Cliente('Facu Conte', 'Conte', new CPF('018.453.999-25', new Date(1998, 1, 27)), Genero.MASCULINO, [new RG('01.573.932-0', new Date(2012, 9, 18), 'RS'), new RG('02.993.528-3', new Date(2014, 10, 20), 'SP')], new Date().toISOString(), [new Telefone('11', '9102-5834'), new Telefone('12', '2585-2576')]);
@@ -97,24 +97,24 @@ empresa.getClientes.push(cliente29)
 empresa.getClientes.push(cliente30)
 
 let produto1 = new Produto("Sabonete de Ervas", 12);
-let produto2 = new Produto("Shampoo Revitalizante", 15);
+let produto2 = new Produto("Shampoo", 15);
 let produto3 = new Produto("Condicionador Hidratante", 18);
 let produto4 = new Produto("Máscara Capilar Nutritiva", 25);
 let produto5 = new Produto("Óleo Corporal Relaxante", 20);
 let produto6 = new Produto("Creme Hidratante Facial", 30);
 let produto7 = new Produto("Esfoliante Corporal", 22);
-let produto8 = new Produto("Loção Corporal Perfumada", 18);
-let produto9 = new Produto("Gel de Limpeza Facial", 15);
+let produto8 = new Produto("Mascara de cílios", 18);
+let produto9 = new Produto("Sabonete de Limpeza Facial", 15);
 let produto10 = new Produto("Máscara Facial Revitalizante", 25);
-let produto11 = new Produto("Protetor Solar FPS 30", 35);
-let produto12 = new Produto("Gel Pós-barba Refrescante", 20);
+let produto11 = new Produto("Protetor Solar", 65);
+let produto12 = new Produto("Gel Pós-barba", 20);
 let produto13 = new Produto("Pomada Modeladora para Cabelo", 18);
 let produto14 = new Produto("Gel Fixador para Cabelo", 15);
-let produto15 = new Produto("Spray Texturizador para Cabelo", 20);
+let produto15 = new Produto("Spray para Cabelo", 20);
 let produto16 = new Produto("Creme para Barbear", 18);
 let produto17 = new Produto("Loção Pós-barba Hidratante", 15);
 let produto18 = new Produto("Óleo para Barba", 22);
-let produto19 = new Produto("Sabonete Líquido Masculino", 12);
+let produto19 = new Produto("Adesivo para espinha", 42);
 let produto20 = new Produto("Perfume Masculino", 40);
 
 empresa.getProdutos.push(produto1)
@@ -139,18 +139,18 @@ empresa.getProdutos.push(produto19)
 empresa.getProdutos.push(produto20)
 
 let servico1 = new Servico("Manicure", 30);
-let servico2 = new Servico("Pedicure", 35);
+let servico2 = new Servico("Pedicure", 55);
 let servico3 = new Servico("Design de Sobrancelhas", 25);
 let servico4 = new Servico("Corte de Cabelo Feminino", 90);
-let servico5 = new Servico("Pintura de Cabelo", 100);
+let servico5 = new Servico("Pintura de Cabelo", 120);
 let servico6 = new Servico("Remoção de Rugas", 200);
 let servico7 = new Servico("Remoção de Manchas na Pele", 180);
 let servico8 = new Servico("Aplicação de Botox", 300);
-let servico9 = new Servico("Tratamento para Emagrecimento", 250);
+let servico9 = new Servico("Tratamento para Emagrecimento", 350);
 let servico10 = new Servico("Redução de Medidas", 220);
-let servico11 = new Servico("Corte de Cabelo Masculino", 40);
-let servico12 = new Servico("Modelagem de Barba", 30);
-let servico13 = new Servico("Corte de Barba", 25);
+let servico11 = new Servico("Corte de Cabelo Masculino", 60);
+let servico12 = new Servico("Corte de Barba", 30);
+let servico13 = new Servico("Luzes no cabelo", 85);
 let servico14 = new Servico("Tratamento para Queda de Cabelo", 150);
 
 empresa.getServicos.push(servico1)
