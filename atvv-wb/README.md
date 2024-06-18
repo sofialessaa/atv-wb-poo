@@ -16,7 +16,7 @@ Para rodar a atvv-wb vc precisa executar os comandos que estão presentes nas pa
 ##### 2. `cd atvv-wb`
 ##### 3. `cd backend`
 ##### 4. `npm install`
-##### 5. Criar o database `worldBeauty` no banco de dados mysql.
+##### 5. Criar o database `worldBeauty` no banco de dados mysql, digite `create database worldBeauty;`
 ##### 6. Coloque a senha do seu mysql no arquivo .env que esta presente na pasta backend -> `DB_PASS= exemploSenha #Senha do banco de dados`
 ##### 7. `npx sequelize-cli db:migrate`
 ##### 8. `nodemon app.js` ou `node app.js`

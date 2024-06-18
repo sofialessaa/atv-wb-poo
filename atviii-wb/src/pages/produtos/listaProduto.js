@@ -74,7 +74,7 @@ export default function ListaProdutos(props){
                                 <td>Creme para cabelo cacheado</td>
                                 <td>R$50,00</td>
                                 <td>
-                                    <a href="##">
+                                    <a href="/editar_produto">
                                         <img src={editar} alt="Editar"/>
                                     </a>
                                 </td>
